@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,19 @@ namespace ControlVentasFormCore.Business
         public bool Delete(int Id)
         {
             ProductoDAL.Delete(Id);
+            return true;
+        }
+        public bool Ok()
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(ConnectionString);
+                connection.Open();
+            }
+            catch
+            {
+                return false;
+            }
             return true;
         }
         #endregion

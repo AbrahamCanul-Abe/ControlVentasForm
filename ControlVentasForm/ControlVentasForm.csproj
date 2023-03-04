@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControlVentasFormCore\ControlVentasFormCore.csproj">
+      <Project>{363d3d8f-6c38-4122-826c-60ad09fc75de}</Project>
+      <Name>ControlVentasFormCore</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
