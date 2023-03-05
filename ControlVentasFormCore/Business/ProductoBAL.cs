@@ -13,7 +13,7 @@ namespace ControlVentasFormCore.Business
     public class ProductoBAL
     {
         #region Variables Globales...
-        private Data.ProductoDAL ProductoDAL;
+        public Data.ProductoDAL ProductoDAL;
         #endregion
 
         #region Constructor...
@@ -74,6 +74,11 @@ namespace ControlVentasFormCore.Business
             ProductoDAL.Delete(Id);
             return true;
         }
+
+        /// <summary>
+        /// Metodo para probar la conexion a la bd
+        /// </summary>
+        /// <returns></returns>
         public bool Ok()
         {
             try

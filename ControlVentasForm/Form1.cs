@@ -33,6 +33,7 @@ namespace ControlVentasForm
                
                 ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString};
                 ProductosDataGridView.DataSource = ProductoBAL.GetProductos();
+                
             }
             catch (Exception ex)
             {
@@ -48,13 +49,5 @@ namespace ControlVentasForm
 
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
-            if (ProductoBAL.Ok())
-                MessageBox.Show("Conectado");
-            else
-                MessageBox.Show("No conectado");
-        }
     }
 }

@@ -11,6 +11,7 @@ namespace ControlVentasFormCore.Data
     {
         #region Global Variables
         public const string TableName = "Productos";
+
         #endregion
 
         #region Properties
@@ -30,7 +31,7 @@ namespace ControlVentasFormCore.Data
         /// <returns></returns>
         public Entity.ProductoInfo GetEntityObject(int Id)
         {
-            string SQL = $"select * from {TableName} where {Entity.ProductoInfo.FieldName.Id} = {Id}";
+            string SQL = $"select Id, Nombre, Descripcion, Precio, CategoriaId from {TableName} where {Entity.ProductoInfo.FieldName.Id} = {Id}";
             DataTable dt = Utilerias.SQLHelper.ExecuteDatatable(SQL, ConnectionString);
 
             if (dt == null || dt.Rows.Count == 0) throw new Exception($"No pude obtener los datos del Id [{Id}]");
@@ -133,9 +134,9 @@ namespace ControlVentasFormCore.Data
                 Filter += $" and {Entity.ProductoInfo.FieldName.Nombre} = '{Producto.Nombre}'";
             if (string.Compare(Producto.Descripcion, nProducto.Descripcion, true) != 0)
                 Filter += $" and {Entity.ProductoInfo.FieldName.Descripcion} = '{Producto.Descripcion}'";
-            if (Producto.Precio == nProducto.Precio)
+            if (Producto.Precio != nProducto.Precio)
                 Filter += $" and {Entity.ProductoInfo.FieldName.Precio} = '{Producto.Precio}'";
-            if (Producto.CategoriaId == nProducto.CategoriaId)
+            if (Producto.CategoriaId != nProducto.CategoriaId)
                 Filter += $" and {Entity.ProductoInfo.FieldName.CategoriaId} = '{Producto.CategoriaId}'";
 
             // generamos una sentencia sql con el filtro dinamico...

@@ -50,7 +50,11 @@ namespace ControlVentasFormCore.Utilerias
 
             using (SqlConnection Connection = new SqlConnection(ConnectionString))
             using (SqlCommand Comm = new SqlCommand(Query, Connection))
+            {
+                Connection.Open();
                 return Comm.ExecuteScalar();
+            }
+                
         }
 
         /// <summary>
