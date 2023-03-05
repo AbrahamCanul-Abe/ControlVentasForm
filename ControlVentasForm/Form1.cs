@@ -59,6 +59,14 @@ namespace ControlVentasForm
             ProductosDataGridView.DataSource = ProductoBAL.GetProductos();
         }
 
-        
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
