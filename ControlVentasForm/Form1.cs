@@ -30,10 +30,7 @@ namespace ControlVentasForm
             try
             {
                 Cursor = Cursors.WaitCursor;
-               
-                ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString};
-                ProductosDataGridView.DataSource = ProductoBAL.GetProductos();
-                
+                refresh();
             }
             catch (Exception ex)
             {
@@ -49,5 +46,19 @@ namespace ControlVentasForm
 
         #endregion
 
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            Frm_AddUpdate_Productos frm = new Frm_AddUpdate_Productos();
+            frm.ShowDialog();
+            refresh();
+        }
+
+        private void refresh()
+        {
+            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
+            ProductosDataGridView.DataSource = ProductoBAL.GetProductos();
+        }
+
+        
     }
 }
