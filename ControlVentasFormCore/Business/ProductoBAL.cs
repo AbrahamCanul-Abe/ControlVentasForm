@@ -48,18 +48,36 @@ namespace ControlVentasFormCore.Business
             return ProductoDAL.FindBy(new Entity.ProductoInfo());
         }
 
+        /// <summary>
+        /// Metodo que devulve un producto por medio del Id
+        /// </summary>
+        /// <param name="CategoriaId"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public List<Entity.ProductoInfo> GetProductosPorId(int CategoriaId)
         {
             if (CategoriaId == 0) throw new Exception("No recibí el Id de la categoría de la que se desean obtener los productos");
             return ProductoDAL.FindBy(new Entity.ProductoInfo() { CategoriaId = CategoriaId });
         }
 
+        /// <summary>
+        /// Aplica un filtro sobre una entidad de producto
+        /// </summary>
+        /// <param name="ProductoInfo"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public List<Entity.ProductoInfo> FindBy(Entity.ProductoInfo ProductoInfo)
         {
             if (ProductoInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
             return ProductoDAL.FindBy(ProductoInfo);
         }
 
+        /// <summary>
+        /// Metodo para guardar datos de un producto, insertar o actualizar
+        /// </summary>
+        /// <param name="ProductoInfo"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public int Save(Entity.ProductoInfo ProductoInfo)
         {
             if (ProductoInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
@@ -69,6 +87,11 @@ namespace ControlVentasFormCore.Business
                 return ProductoDAL.Update(ProductoInfo);
         }
 
+        /// <summary>
+        /// Metodo para eliminar un producto a traves de su Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public bool Delete(int Id)
         {
             ProductoDAL.Delete(Id);

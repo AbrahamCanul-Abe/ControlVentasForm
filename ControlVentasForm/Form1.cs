@@ -30,6 +30,8 @@ namespace ControlVentasForm
         /// <returns></returns>
 
         #region HELPER
+        
+        //Obtiene el id de la Fila/Producto seleccionado actualmente
         private int? GetId()
         {
             try
@@ -45,6 +47,11 @@ namespace ControlVentasForm
         }
         #endregion
         #region Events...
+        /// <summary>
+        /// Metodo de inicio del Formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             try
@@ -60,25 +67,31 @@ namespace ControlVentasForm
             {
                 Cursor = Cursors.Default;
             }
-
         }
-
-
-        #endregion
-
+        /// <summary>
+        /// Metodo del boton para agregar un nuevo producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Frm_AddUpdate_Productos frm = new Frm_AddUpdate_Productos();
             frm.ShowDialog();
             Refresh();
         }
-
+        /// <summary>
+        /// Metodo para refrescar los datos del datagrid
+        /// </summary>
         private void Refresh()
         {
             ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
             ProductosDataGridView.DataSource = ProductoBAL.GetProductos();
         }
-
+        /// <summary>
+        /// Metodo del boton para editar un producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditar_Click(object sender, EventArgs e)
         {
             int? ID = GetId();
@@ -88,9 +101,12 @@ namespace ControlVentasForm
                 frmEdit.ShowDialog();
                 Refresh();
             }
-            
         }
-
+        /// <summary>
+        /// Metodo para elminar un producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int? ID = GetId();
@@ -113,5 +129,17 @@ namespace ControlVentasForm
                 MessageBox.Show(ex.Message);
             }
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+        #endregion
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }
