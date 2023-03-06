@@ -22,7 +22,28 @@ namespace ControlVentasForm
         {
             InitializeComponent();
         }
+        public Frm_AddUpdate_Productos(int? ID = null)
+        {
+            InitializeComponent();
+            this.ID = ID;
 
+            if (this.ID != null)
+                LoadData();
+        }
+        /// <summary>
+        /// Metodo que carga los valores obtenidos en los TextBox solo si se regreso algun ID
+        /// </summary>
+        private void LoadData()
+        {
+            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
+            txtNombre.Text = ProductoBAL.GetProducto((int)ID).Nombre.ToString();
+            txtDescripcion.Text = ProductoBAL.GetProducto((int)ID).Descripcion.ToString();
+            txtPrecio.Text = ProductoBAL.GetProducto((int)ID).Precio.ToString();
+            cbxCategorias.SelectedValue = ProductoBAL.GetProducto((int)ID).CategoriaId.ToString();
+
+
+
+        }
         private void Frm_AddUpdate_Productos_Load(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))

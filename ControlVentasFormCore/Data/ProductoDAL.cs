@@ -96,8 +96,8 @@ namespace ControlVentasFormCore.Data
             sb.AppendLine($"update {TableName} set");
             sb.Append($"{Entity.ProductoInfo.FieldName.Nombre} = '{ProductoInfo.Nombre}'");
             sb.Append($",{Entity.ProductoInfo.FieldName.Descripcion} = '{ProductoInfo.Descripcion}'");
-            sb.Append($"{Entity.ProductoInfo.FieldName.Precio} = '{ProductoInfo.Precio}'");
-            sb.Append($"{Entity.ProductoInfo.FieldName.CategoriaId} = '{ProductoInfo.CategoriaId}'");
+            sb.Append($",{Entity.ProductoInfo.FieldName.Precio} = '{ProductoInfo.Precio}'");
+            sb.Append($",{Entity.ProductoInfo.FieldName.CategoriaId} = '{ProductoInfo.CategoriaId}'");
             sb.Append($" where {Entity.ProductoInfo.FieldName.Id} = {ProductoInfo.Id}");
 
             Utilerias.SQLHelper.ExecuteNonQuery(sb.ToString(), ConnectionString);
