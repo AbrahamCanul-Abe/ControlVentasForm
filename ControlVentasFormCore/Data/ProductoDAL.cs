@@ -88,7 +88,7 @@ namespace ControlVentasFormCore.Data
         /// <summary>
         /// actualiza el objetoe entidad especificad
         /// </summary>
-        /// <param name="ProductosInfo"></param>
+        /// <param name="ProductoInfo"></param>
         /// <returns></returns>
         public int Update(Entity.ProductoInfo ProductoInfo)
         {
