@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace ControlVentasFormCore.Entity
 {
-    internal class RolesInfo
+    public class RolInfo
     {
+        #region Database FieldNames
+        public class FieldName
+        {
+            public const string Id = "Id";
+            public const string Tipo = "Tipo";
+        }
+        #endregion
+
+        #region Properties
+        public int Id { get; set; }
+        public string Tipo { get; set; }
+        #endregion
     }
 }
