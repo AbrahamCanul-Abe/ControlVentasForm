@@ -49,7 +49,7 @@ namespace ControlVentasFormCore.Business
         }
 
         /// <summary>
-        /// Metodo que devulve un producto por medio del Id
+        /// Metodo que devulve un producto por medio de su categoria
         /// </summary>
         /// <param name="CategoriaId"></param>
         /// <returns></returns>

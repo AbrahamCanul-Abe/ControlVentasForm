@@ -31,12 +31,12 @@ namespace ControlVentasFormCore.Business
         #region Methods
         public Entity.CategoriaInfo GetCategoria(int Id)
         {
-            if (Id == 0) throw new ArgumentException("No recibi el id del producto que desea obtener");
+            if (Id == 0) throw new ArgumentException("No recibi el id de la categoria que desea obtener");
             return CategoriaDAL.GetEntityObject(Id);
         }
 
         /// <summary>
-        /// Metodo que devuelve TODOS los productos existentes
+        /// Metodo que devuelve TODAS las Categorias existentes
         /// </summary>
         /// <param name="Categoria"></param>
         /// <returns></returns>
@@ -46,26 +46,26 @@ namespace ControlVentasFormCore.Business
         }
 
         /// <summary>
-        /// Aplica un filtro sobre una entidad de producto
+        /// Aplica un filtro sobre una entidad de categoria
         /// </summary>
         /// <param name="CategoriaInfo"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public List<Entity.CategoriaInfo> FindBy(Entity.CategoriaInfo CategoriaInfo)
         {
-            if (CategoriaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (CategoriaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Categoria para aplicar el filtro");
             return CategoriaDAL.FindBy(CategoriaInfo);
         }
 
         /// <summary>
-        /// Metodo para guardar datos de un producto, insertar o actualizar
+        /// Metodo para guardar datos de una categoria, insertar o actualizar
         /// </summary>
         /// <param name="CategoriaInfo"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public int Save(Entity.CategoriaInfo CategoriaInfo)
         {
-            if (CategoriaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (CategoriaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Categoria para aplicar el filtro");
             if (CategoriaInfo.Id == 0)
                 return CategoriaDAL.Insert(CategoriaInfo);
             else
@@ -73,7 +73,7 @@ namespace ControlVentasFormCore.Business
         }
 
         /// <summary>
-        /// Metodo para eliminar un producto a traves de su Id
+        /// Metodo para eliminar una categoria a traves de su Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
@@ -83,23 +83,7 @@ namespace ControlVentasFormCore.Business
             return true;
         }
 
-        /// <summary>
-        /// Metodo para probar la conexion a la bd
-        /// </summary>
-        /// <returns></returns>
-        public bool Ok()
-        {
-            try
-            {
-                SqlConnection connection = new SqlConnection(ConnectionString);
-                connection.Open();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
+        
         #endregion
     }
 }

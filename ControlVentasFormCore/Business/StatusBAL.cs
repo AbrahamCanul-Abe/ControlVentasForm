@@ -31,12 +31,12 @@ namespace ControlVentasFormCore.Business
         #region Methods
         public Entity.StatusInfo GetStatus(int Id)
         {
-            if (Id == 0) throw new ArgumentException("No recibi el id del producto que desea obtener");
+            if (Id == 0) throw new ArgumentException("No recibi el id del Status que desea obtener");
             return StatusDAL.GetEntityObject(Id);
         }
 
         /// <summary>
-        /// Metodo que devuelve TODOS los productos existentes
+        /// Metodo que devuelve TODOS los status existentes
         /// </summary>
         /// <param name="Status"></param>
         /// <returns></returns>
@@ -53,7 +53,7 @@ namespace ControlVentasFormCore.Business
         /// <exception cref="ArgumentNullException"></exception>
         public List<Entity.StatusInfo> FindBy(Entity.StatusInfo StatusInfo)
         {
-            if (StatusInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (StatusInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Status para aplicar el filtro");
             return StatusDAL.FindBy(StatusInfo);
         }
 
@@ -65,7 +65,7 @@ namespace ControlVentasFormCore.Business
         /// <exception cref="ArgumentNullException"></exception>
         public int Save(Entity.StatusInfo StatusInfo)
         {
-            if (StatusInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (StatusInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Status para aplicar el filtro");
             if (StatusInfo.Id == 0)
                 return StatusDAL.Insert(StatusInfo);
             else

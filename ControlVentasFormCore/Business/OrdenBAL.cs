@@ -30,12 +30,12 @@ namespace ControlVentasFormCore.Business
         #region Methods
         public Entity.OrdenInfo GetOrden(int Id)
         {
-            if (Id == 0) throw new ArgumentException("No recibi el id del producto que desea obtener");
+            if (Id == 0) throw new ArgumentException("No recibi el id de la orden que desea obtener");
             return OrdenDAL.GetEntityObject(Id);
         }
 
         /// <summary>
-        /// Metodo que devuelve TODOS los productos existentes
+        /// Metodo que devuelve TODAS las ordenes existentes
         /// </summary>
         /// <param name="Orden"></param>
         /// <returns></returns>
@@ -46,26 +46,26 @@ namespace ControlVentasFormCore.Business
 
 
         /// <summary>
-        /// Aplica un filtro sobre una entidad de producto
+        /// Aplica un filtro sobre una entidad de orden
         /// </summary>
         /// <param name="OrdenInfo"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public List<Entity.OrdenInfo> FindBy(Entity.OrdenInfo OrdenInfo)
         {
-            if (OrdenInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (OrdenInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Orden para aplicar el filtro");
             return OrdenDAL.FindBy(OrdenInfo);
         }
 
         /// <summary>
-        /// Metodo para guardar datos de un producto, insertar o actualizar
+        /// Metodo para guardar datos de una orden, insertar o actualizar
         /// </summary>
         /// <param name="OrdenInfo"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public int Save(Entity.OrdenInfo OrdenInfo)
         {
-            if (OrdenInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (OrdenInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Orden para aplicar el filtro");
             if (OrdenInfo.Folio == 0)
                 return OrdenDAL.Insert(OrdenInfo);
             else
@@ -73,7 +73,7 @@ namespace ControlVentasFormCore.Business
         }
 
         /// <summary>
-        /// Metodo para eliminar un producto a traves de su Id
+        /// Metodo para eliminar una orden a traves de su Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>

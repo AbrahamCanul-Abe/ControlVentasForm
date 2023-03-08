@@ -31,12 +31,12 @@ namespace ControlVentasFormCore.Business
         #region Methods
         public Entity.RolInfo GetRol(int Id)
         {
-            if (Id == 0) throw new ArgumentException("No recibi el id del producto que desea obtener");
+            if (Id == 0) throw new ArgumentException("No recibi el id del Rol que desea obtener");
             return RolDAL.GetEntityObject(Id);
         }
 
         /// <summary>
-        /// Metodo que devuelve TODOS los productos existentes
+        /// Metodo que devuelve TODOS los Roles existentes
         /// </summary>
         /// <param name="Rol"></param>
         /// <returns></returns>
@@ -46,26 +46,26 @@ namespace ControlVentasFormCore.Business
         }
 
         /// <summary>
-        /// Aplica un filtro sobre una entidad de producto
+        /// Aplica un filtro sobre una entidad de Roles
         /// </summary>
         /// <param name="RolInfo"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public List<Entity.RolInfo> FindBy(Entity.RolInfo RolInfo)
         {
-            if (RolInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (RolInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Rol para aplicar el filtro");
             return RolDAL.FindBy(RolInfo);
         }
 
         /// <summary>
-        /// Metodo para guardar datos de un producto, insertar o actualizar
+        /// Metodo para guardar datos de un Rol, insertar o actualizar
         /// </summary>
         /// <param name="RolInfo"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public int Save(Entity.RolInfo RolInfo)
         {
-            if (RolInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
+            if (RolInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Rol para aplicar el filtro");
             if (RolInfo.Id == 0)
                 return RolDAL.Insert(RolInfo);
             else
@@ -73,7 +73,7 @@ namespace ControlVentasFormCore.Business
         }
 
         /// <summary>
-        /// Metodo para eliminar un producto a traves de su Id
+        /// Metodo para eliminar un Rol a traves de su Id
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
