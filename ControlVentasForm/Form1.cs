@@ -139,7 +139,22 @@ namespace ControlVentasForm
         {
 
         }
+        #region Menustrip
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form regCategorias = new Frm_Categorias();
+            regCategorias.Show(); 
+        }
 
-        
+        #endregion
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult opcionSeleciconada = MessageBox.Show("¿Realmente desea salir?", "Aviso", MessageBoxButtons.YesNo);
+            if(opcionSeleciconada == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

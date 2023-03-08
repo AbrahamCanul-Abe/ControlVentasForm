@@ -83,6 +83,6 @@ namespace ControlVentasFormCore.Business
             return true;
         }
 
-
+        #endregion
     }
 }

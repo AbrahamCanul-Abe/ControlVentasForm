@@ -17,7 +17,9 @@ namespace ControlVentasForm
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
         string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=ControlVentas";
-        #endregion 
+        #endregion
+
+        #region Methods...
         public Frm_AddUpdate_Productos()
         {
             InitializeComponent();
@@ -87,6 +89,7 @@ namespace ControlVentasForm
             {
                 MessageBox.Show("Ocurrio un error al guardar: " + ex.Message);
             }
+            #endregion
         }
     }
 }
