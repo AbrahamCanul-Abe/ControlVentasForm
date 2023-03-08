@@ -31,7 +31,7 @@ namespace ControlVentasFormCore.Data
         /// <returns></returns>
         public Entity.ProductoInfo GetEntityObject(int Id)
         {
-            string SQL = $"select Id, Nombre, Descripcion, Precio, CategoriaId from {TableName} where {Entity.ProductoInfo.FieldName.Id} = {Id}";
+            string SQL = $"select * from {TableName} where {Entity.ProductoInfo.FieldName.Id} = {Id}";
             DataTable dt = Utilerias.SQLHelper.ExecuteDatatable(SQL, ConnectionString);
 
             if (dt == null || dt.Rows.Count == 0) throw new Exception($"No pude obtener los datos del Id [{Id}]");
