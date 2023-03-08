@@ -29,7 +29,7 @@ namespace ControlVentasFormCore.Business
         #endregion
 
         #region Methods
-        public Entity.CategoriaInfo GetProducto(int Id)
+        public Entity.CategoriaInfo GetCategoria(int Id)
         {
             if (Id == 0) throw new ArgumentException("No recibi el id del producto que desea obtener");
             return CategoriaDAL.GetEntityObject(Id);
@@ -40,7 +40,7 @@ namespace ControlVentasFormCore.Business
         /// </summary>
         /// <param name="Categoria"></param>
         /// <returns></returns>
-        public List<Entity.CategoriaInfo> GetProductos()
+        public List<Entity.CategoriaInfo> GetCategorias()
         {
             return CategoriaDAL.FindBy(new Entity.CategoriaInfo());
         }
