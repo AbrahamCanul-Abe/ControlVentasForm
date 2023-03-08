@@ -84,23 +84,7 @@ namespace ControlVentasFormCore.Business
             return true;
         }
 
-        /// <summary>
-        /// Metodo para probar la conexion a la bd
-        /// </summary>
-        /// <returns></returns>
-        public bool Ok()
-        {
-            try
-            {
-                SqlConnection connection = new SqlConnection(ConnectionString);
-                connection.Open();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
+        
         #endregion
     }
 }
