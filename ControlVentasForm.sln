@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlVentasForm", "Contro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlVentasFormCore", "ControlVentasFormCore\ControlVentasFormCore.csproj", "{363D3D8F-6C38-4122-826C-60AD09FC75DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests ControlVentas", "Tests ControlVentas\Tests ControlVentas.csproj", "{D6AA81C5-717C-432A-B05C-041D12F2E89D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{363D3D8F-6C38-4122-826C-60AD09FC75DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{363D3D8F-6C38-4122-826C-60AD09FC75DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{363D3D8F-6C38-4122-826C-60AD09FC75DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6AA81C5-717C-432A-B05C-041D12F2E89D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6AA81C5-717C-432A-B05C-041D12F2E89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6AA81C5-717C-432A-B05C-041D12F2E89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6AA81C5-717C-432A-B05C-041D12F2E89D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

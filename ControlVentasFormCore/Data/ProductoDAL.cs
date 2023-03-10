@@ -80,7 +80,7 @@ namespace ControlVentasFormCore.Data
             sb.AppendLine(")");
             sb.AppendLine("select SCOPE_IDENTITY()");
 
-            object Id = Utilerias.SQLHelper.ExecuteScalar(sb.ToString(), ConnectionString);
+            object Id = SOLTUM.Framework.Utilities.SQLHelper.ExecuteScalar(sb.ToString(), ConnectionString);
             if (Id == null) return 0;
             return Convert.ToInt32(Id);
         }
