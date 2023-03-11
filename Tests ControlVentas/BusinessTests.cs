@@ -42,20 +42,19 @@ namespace Tests_ControlVentas
             Assert.AreEqual(Id, actual.Id);
         }
 
-        //Test para el metodo GetProductos, devuelve todos los productos evalua que no devuelva una lista vacia
+        //Test para el metodo Getproducto ArgumentNullException
         [TestMethod]
-        public void GetProductosIsNotNullList()
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void GetProduct_ShouldThrowArgumentNullException()
         {
             //Arrange
+            int Id = 0;
 
             //Act
-            var actual = ProductoBAL.GetProductos();
+            var actual = ProductoBAL.GetProducto(Id);
 
             //Assert
-            Assert.IsNotNull(actual);
-
         }
-
 
         //Test para el metodo GetProductos evalua que el contador sea igual al numero de productos actuales
         [TestMethod]
@@ -72,7 +71,21 @@ namespace Tests_ControlVentas
 
         }
 
-        //Test para el metodo Save
+        //Test para el metodo GetProductos, devuelve todos los productos evalua que no devuelva una lista vacia
+        [TestMethod]
+        public void GetProductosIsNotNullList()
+        {
+            //Arrange
+
+            //Act
+            var actual = ProductoBAL.GetProductos();
+
+            //Assert
+            Assert.IsNotNull(actual);
+
+        }
+
+        //Test para el metodo Save, evalua si es una instancia del tipo correcto y si el Id se guarda correctamente
         [TestMethod]
         public void SaveProductAndCheckTheNewProductIdIsSave()
         {
@@ -111,6 +124,20 @@ namespace Tests_ControlVentas
             {
                 Assert.AreEqual(SearchProduct.Nombre, producto.Nombre);
             }
+        }
+
+        //Test para el metodo FindBy ArgumentNullException
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void FindBy_ShouldThrowArgumentNullException()
+        {
+            // Arrange
+            ProductoInfo SearchProduct = null;
+
+            // Act
+            var actual = ProductoBAL.FindBy(SearchProduct);
+
+            // Assert
         }
         #endregion
     }

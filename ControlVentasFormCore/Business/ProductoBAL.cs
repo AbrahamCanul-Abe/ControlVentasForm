@@ -34,7 +34,7 @@ namespace ControlVentasFormCore.Business
         #region Methods
         public Entity.ProductoInfo GetProducto(int Id)
         {
-            if (Id == 0) throw new ArgumentException("No recibi el id del producto que desea obtener");
+            if (Id == 0) throw new ArgumentNullException("No recibi el id del producto que desea obtener");
             return ProductoDAL.GetEntityObject(Id);
         }
 
