@@ -16,7 +16,7 @@ namespace ControlVentasForm
     {
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
-        string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=ControlVentas";
+        string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=dbRestaurantventas_data";
         #endregion 
         #region Constructors...
         public Form1()

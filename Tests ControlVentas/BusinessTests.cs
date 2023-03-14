@@ -23,7 +23,7 @@ namespace Tests_ControlVentas
         public void testInit()
         {
             ProductoBAL = new ProductoBAL();
-            ProductoBAL.ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=ControlVentas";
+            ProductoBAL.ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=dbRestaurantventas_data";
         }
         #endregion
 

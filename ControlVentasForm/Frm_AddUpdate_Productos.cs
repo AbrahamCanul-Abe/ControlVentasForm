@@ -16,7 +16,7 @@ namespace ControlVentasForm
         private int? ID;
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
-        string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=ControlVentas";
+        string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=dbRestaurantventas_data";
         #endregion
 
         #region Methods...
@@ -50,7 +50,7 @@ namespace ControlVentasForm
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-                SqlCommand comando = new SqlCommand("select nombre from categorias", connection);
+                SqlCommand comando = new SqlCommand("select Nombre from dbENC78", connection);
                 connection.Open();
                 SqlDataReader registro = comando.ExecuteReader();
                 while (registro.Read())
