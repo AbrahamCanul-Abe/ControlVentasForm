@@ -10,7 +10,8 @@ namespace ControlVentasFormCore.Data
     public class ProductoDAL
     {
         #region Global Variables
-        public const string TableName = "Productos";
+        public const string BookName = "BookProductos";
+        public const string TableName = "dbENC79";
 
         #endregion
 
@@ -66,19 +67,22 @@ namespace ControlVentasFormCore.Data
         public int Insert(Entity.ProductoInfo ProductoInfo)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"insert into {TableName} (");
+            sb.AppendLine("declare @Id int");
+            sb.AppendLine($"select @Id = fol_act from dbconf_Bloq where des_bloq = '{BookName}'");
+            sb.AppendLine($"insert into {TableName} (NUM_DOC,");
             sb.Append(Entity.ProductoInfo.FieldName.Nombre);
             sb.Append($", {Entity.ProductoInfo.FieldName.Descripcion}");
             sb.Append($", {Entity.ProductoInfo.FieldName.Precio}");
             sb.Append($", {Entity.ProductoInfo.FieldName.CategoriaId}");
             sb.AppendLine(")");
-            sb.AppendLine("values(");
+            sb.AppendLine("values(@Id,");
             sb.Append($"'{ProductoInfo.Nombre}'");
             sb.Append($",'{ProductoInfo.Descripcion}'");
             sb.Append($",'{ProductoInfo.Precio}'");
             sb.Append($",'{ProductoInfo.CategoriaId}'");
             sb.AppendLine(")");
             sb.AppendLine("select SCOPE_IDENTITY()");
+            sb.AppendLine($"update dbconf_bloq set fol_act = fol_act + 1 where des_bloq = {BookName}");
 
             object Id = SOLTUM.Framework.Utilities.SQLHelper.ExecuteScalar(sb.ToString(), ConnectionString);
             if (Id == null) return 0;
@@ -112,7 +116,7 @@ namespace ControlVentasFormCore.Data
         public int Delete(int Id)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"delete {TableName}");
+            sb.AppendLine($"update {TableName} set NUM_DOC = NUM_DOC * (-1)");
             sb.Append($" where {Entity.ProductoInfo.FieldName.Id} = {Id}");
 
             Utilerias.SQLHelper.ExecuteNonQuery(sb.ToString(), ConnectionString);

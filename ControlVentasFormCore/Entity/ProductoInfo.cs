@@ -14,7 +14,7 @@ namespace ControlVentasFormCore.Entity
         #region Database FieldNames
         public class FieldName
         {
-            public const string Id = "Id";
+            public const string Id = "NUM_DOC";
             public const string Nombre = "Nombre";
             public const string Descripcion = "Descripcion";
             public const string Precio = "Precio";
