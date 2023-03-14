@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using SOLTUM.Framework.Business;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,24 +12,13 @@ namespace ControlVentasFormCore.Business
     /// <summary>
     /// Definicion de clase que permite exponer metodos de negocio para los productos
     /// </summary>
-    public class ProductoBAL
+    public class ProductoBAL : BookBaseBAL<Entity.ProductoInfo, Entity.ProductoInfo.FieldName, Data.ProductoDAL>
     {
-        #region Variables Globales...
-        public Data.ProductoDAL ProductoDAL;
-        #endregion
 
         #region Constructor...
-        public ProductoBAL()
+        public ProductoBAL() : base()
         {
-            ProductoDAL = new Data.ProductoDAL();
-        }
-        #endregion
-
-        #region Properties
-        public string ConnectionString
-        {
-            get { return ProductoDAL.ConnectionString; }
-            set { ProductoDAL.ConnectionString = value; }
+            Version = "1.0.0.0";
         }
         #endregion
 
@@ -35,7 +26,7 @@ namespace ControlVentasFormCore.Business
         public Entity.ProductoInfo GetProducto(int Id)
         {
             if (Id == 0) throw new ArgumentNullException("No recibi el id del producto que desea obtener");
-            return ProductoDAL.GetEntityObject(Id);
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.Id, "=", Id.ToString()) }).FirstOrDefault();
         }
 
         /// <summary>
@@ -45,7 +36,7 @@ namespace ControlVentasFormCore.Business
         /// <returns></returns>
         public List<Entity.ProductoInfo> GetProductos()
         {
-            return ProductoDAL.FindBy(new Entity.ProductoInfo());
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
         }
 
         /// <summary>
@@ -57,46 +48,9 @@ namespace ControlVentasFormCore.Business
         public List<Entity.ProductoInfo> GetProductosPorId(int CategoriaId)
         {
             if (CategoriaId == 0) throw new Exception("No recibí el Id de la categoría de la que se desean obtener los productos");
-            return ProductoDAL.FindBy(new Entity.ProductoInfo() { CategoriaId = CategoriaId });
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.CategoriaId, "=", CategoriaId.ToString()) }).ToList();
         }
 
-        /// <summary>
-        /// Aplica un filtro sobre una entidad de producto
-        /// </summary>
-        /// <param name="ProductoInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public List<Entity.ProductoInfo> FindBy(Entity.ProductoInfo ProductoInfo)
-        {
-            if (ProductoInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
-            return ProductoDAL.FindBy(ProductoInfo);
-        }
-
-        /// <summary>
-        /// Metodo para guardar datos de un producto, insertar o actualizar
-        /// </summary>
-        /// <param name="ProductoInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public int Save(Entity.ProductoInfo ProductoInfo)
-        {
-            if (ProductoInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Producto para aplicar el filtro");
-            if (ProductoInfo.Id == 0)
-                return ProductoDAL.Insert(ProductoInfo);
-            else
-                return ProductoDAL.Update(ProductoInfo);
-        }
-
-        /// <summary>
-        /// Metodo para eliminar un producto a traves de su Id
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public bool Delete(int Id)
-        {
-            ProductoDAL.Delete(Id);
-            return true;
-        }
 
         /// <summary>
         /// Metodo para probar la conexion a la bd

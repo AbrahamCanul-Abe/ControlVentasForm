@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLTUM.Framework.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,15 +10,23 @@ namespace ControlVentasFormCore.Entity
     /// <summary>
     /// Definicion de clase que permite exponer los atributos de un producto
     /// </summary>
-    public class ProductoInfo
+    public class ProductoInfo : IEntity
     {
         #region Database FieldNames
         public class FieldName
         {
             public const string Id = "NUM_DOC";
+
+            [Field(Nombre, "Nombre",  FieldAttribute.eFieldType.Texto, Length = 200)]
             public const string Nombre = "Nombre";
+
+            [Field(Nombre, "Nombre", FieldAttribute.eFieldType.Texto, Length = 255)]
             public const string Descripcion = "Descripcion";
+
+            [Field(Precio, "Precio", FieldAttribute.eFieldType.Numero)]
             public const string Precio = "Precio";
+
+            [Field(CategoriaId, "CategoriaId", FieldAttribute.eFieldType.Numero)]
             public const string CategoriaId = "CategoriaId";
         }
         #endregion
