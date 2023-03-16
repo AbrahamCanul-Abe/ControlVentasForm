@@ -16,7 +16,8 @@ namespace ControlVentasForm
     {
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
-        string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=dbRestaurantventas_data";
+        string ConnectionString = SOLTUM.Framework.Global.ProjectConnection.DataConnectionString;
+        //string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=dbRestaurantventas_data";
         #endregion 
         #region Constructors...
         public Form1()
@@ -114,7 +115,6 @@ namespace ControlVentasForm
             {
                 if (ID != null)
                 {
-                    // Mostrar un cuadro de mensaje para confirmar la eliminación del producto
                     DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {

@@ -20,7 +20,7 @@ namespace ControlVentasFormCore.Entity
             [Field(Nombre, "Nombre",  FieldAttribute.eFieldType.Texto, Length = 200)]
             public const string Nombre = "Nombre";
 
-            [Field(Nombre, "Nombre", FieldAttribute.eFieldType.Texto, Length = 255)]
+            [Field(Descripcion, "Descripcion", FieldAttribute.eFieldType.Texto, Length = 255)]
             public const string Descripcion = "Descripcion";
 
             [Field(Precio, "Precio", FieldAttribute.eFieldType.Numero)]

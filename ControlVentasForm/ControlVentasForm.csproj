@@ -68,8 +68,8 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SOLTUM.Framework, Version=2.3.3.21, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SOLTUM.Framework.2.3.3.21\lib\net472\SOLTUM.Framework.dll</HintPath>
+    <Reference Include="SOLTUM.Framework, Version=2.3.3.11, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SOLTUM.Framework.2.3.3.11\lib\net472\SOLTUM.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -265,6 +265,12 @@
     <Compile Include="Frm_Usuarios.Designer.cs">
       <DependentUpon>Frm_Usuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -279,6 +285,9 @@
     <EmbeddedResource Include="Frm_Categorias.resx">
       <DependentUpon>Frm_Categorias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -287,6 +296,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

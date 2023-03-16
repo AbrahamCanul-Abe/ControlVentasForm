@@ -105,40 +105,7 @@ namespace Tests_ControlVentas
             Assert.IsTrue(actual > 0);
         }
 
-        //Test para el metodo FindBy
-        [TestMethod]
-        public void FindAValidProductAndReturnThatProduct()
-        {
-            // Arrange
-            var SearchProduct = new ProductoInfo
-            {
-                Nombre = "Horchata"
-            };
-
-            // Act
-            var actual = ProductoBAL.FindBy(SearchProduct);
-
-            // Assert
-            Assert.IsNotNull(actual);
-            foreach (var producto in actual)
-            {
-                Assert.AreEqual(SearchProduct.Nombre, producto.Nombre);
-            }
-        }
-
-        //Test para el metodo FindBy ArgumentNullException
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void FindBy_ShouldThrowArgumentNullException()
-        {
-            // Arrange
-            ProductoInfo SearchProduct = null;
-
-            // Act
-            var actual = ProductoBAL.FindBy(SearchProduct);
-
-            // Assert
-        }
+        
         #endregion
     }
 }

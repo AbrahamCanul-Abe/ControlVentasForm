@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLTUM.Framework.Business;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,24 +8,12 @@ using System.Threading.Tasks;
 
 namespace ControlVentasFormCore.Business
 {
-    public class CategoriaBAL
+    public class CategoriaBAL : BookBaseBAL<Entity.CategoriaInfo, Entity.CategoriaInfo.FieldName, Data.CategoriaDAL>
     {
-        #region Variables Globales...
-        public Data.CategoriaDAL CategoriaDAL;
-        #endregion
-
         #region Constructor...
-        public CategoriaBAL()
+        public CategoriaBAL() : base() 
         {
-            CategoriaDAL = new Data.CategoriaDAL();
-        }
-        #endregion
-
-        #region Properties
-        public string ConnectionString
-        {
-            get { return CategoriaDAL.ConnectionString; }
-            set { CategoriaDAL.ConnectionString = value; }
+            Version = "1.0.0.0";
         }
         #endregion
 
@@ -32,7 +21,7 @@ namespace ControlVentasFormCore.Business
         public Entity.CategoriaInfo GetCategoria(int Id)
         {
             if (Id == 0) throw new ArgumentException("No recibi el id de la categoria que desea obtener");
-            return CategoriaDAL.GetEntityObject(Id);
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { new SOLTUM.Framework.Data.Attributes.Condition(Entity.CategoriaInfo.FieldName.Id, "=", Id.ToString()) }).FirstOrDefault(); ;
         }
 
         /// <summary>
@@ -42,46 +31,10 @@ namespace ControlVentasFormCore.Business
         /// <returns></returns>
         public List<Entity.CategoriaInfo> GetCategorias()
         {
-            return CategoriaDAL.FindBy(new Entity.CategoriaInfo());
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
         }
 
-        /// <summary>
-        /// Aplica un filtro sobre una entidad de categoria
-        /// </summary>
-        /// <param name="CategoriaInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public List<Entity.CategoriaInfo> FindBy(Entity.CategoriaInfo CategoriaInfo)
-        {
-            if (CategoriaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Categoria para aplicar el filtro");
-            return CategoriaDAL.FindBy(CategoriaInfo);
-        }
-
-        /// <summary>
-        /// Metodo para guardar datos de una categoria, insertar o actualizar
-        /// </summary>
-        /// <param name="CategoriaInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public int Save(Entity.CategoriaInfo CategoriaInfo)
-        {
-            if (CategoriaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Categoria para aplicar el filtro");
-            if (CategoriaInfo.Id == 0)
-                return CategoriaDAL.Insert(CategoriaInfo);
-            else
-                return CategoriaDAL.Update(CategoriaInfo);
-        }
-
-        /// <summary>
-        /// Metodo para eliminar una categoria a traves de su Id
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public bool Delete(int Id)
-        {
-            CategoriaDAL.Delete(Id);
-            return true;
-        }
+        
 
         
         #endregion

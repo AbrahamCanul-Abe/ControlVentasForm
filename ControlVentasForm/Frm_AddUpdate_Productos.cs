@@ -16,7 +16,7 @@ namespace ControlVentasForm
         private int? ID;
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
-        string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=dbRestaurantventas_data";
+        string ConnectionString = SOLTUM.Framework.Global.ProjectConnection.DataConnectionString;
         #endregion
 
         #region Methods...

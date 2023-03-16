@@ -26,7 +26,9 @@ namespace ControlVentasFormCore.Business
         public Entity.ProductoInfo GetProducto(int Id)
         {
             if (Id == 0) throw new ArgumentNullException("No recibi el id del producto que desea obtener");
-            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.Id, "=", Id.ToString()) }).FirstOrDefault();
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() {
+                new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.Id, "=", Id.ToString()) 
+            }).FirstOrDefault();
         }
 
         /// <summary>
@@ -48,7 +50,9 @@ namespace ControlVentasFormCore.Business
         public List<Entity.ProductoInfo> GetProductosPorId(int CategoriaId)
         {
             if (CategoriaId == 0) throw new Exception("No recibí el Id de la categoría de la que se desean obtener los productos");
-            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.CategoriaId, "=", CategoriaId.ToString()) }).ToList();
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { 
+                new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.CategoriaId, "=", CategoriaId.ToString()) 
+            }).ToList();
         }
 
 
