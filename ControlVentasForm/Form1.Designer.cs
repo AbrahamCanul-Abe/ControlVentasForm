@@ -46,6 +46,7 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -56,16 +57,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProductosDataGridView.Location = new System.Drawing.Point(58, 90);
+            this.ProductosDataGridView.Location = new System.Drawing.Point(58, 155);
             this.ProductosDataGridView.Name = "ProductosDataGridView";
-            this.ProductosDataGridView.Size = new System.Drawing.Size(526, 312);
+            this.ProductosDataGridView.Size = new System.Drawing.Size(698, 347);
             this.ProductosDataGridView.TabIndex = 0;
             // 
             // BtnNuevo
             // 
             this.BtnNuevo.BackColor = System.Drawing.Color.PaleGreen;
             this.BtnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("BtnNuevo.Image")));
-            this.BtnNuevo.Location = new System.Drawing.Point(317, 37);
+            this.BtnNuevo.Location = new System.Drawing.Point(490, 94);
             this.BtnNuevo.Name = "BtnNuevo";
             this.BtnNuevo.Size = new System.Drawing.Size(72, 39);
             this.BtnNuevo.TabIndex = 1;
@@ -78,7 +79,7 @@
             // 
             this.btnEditar.BackColor = System.Drawing.Color.Turquoise;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.Location = new System.Drawing.Point(395, 38);
+            this.btnEditar.Location = new System.Drawing.Point(568, 95);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(63, 39);
             this.btnEditar.TabIndex = 2;
@@ -92,7 +93,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Salmon;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(464, 38);
+            this.btnEliminar.Location = new System.Drawing.Point(637, 95);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(72, 38);
             this.btnEliminar.TabIndex = 3;
@@ -105,11 +106,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 41);
+            this.label1.Location = new System.Drawing.Point(54, 98);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 25);
+            this.label1.Size = new System.Drawing.Size(185, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Productos";
+            this.label1.Text = "Listado Productos";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
@@ -118,7 +119,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(542, 38);
+            this.button1.Location = new System.Drawing.Point(715, 95);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 39);
             this.button1.TabIndex = 5;
@@ -132,7 +133,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(647, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(819, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -150,6 +151,7 @@
             this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
             this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.opcionesToolStripMenuItem.Text = "Opciones";
+            this.opcionesToolStripMenuItem.Click += new System.EventHandler(this.opcionesToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
@@ -207,11 +209,22 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(293, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(217, 29);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Control de ventas";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 436);
+            this.ClientSize = new System.Drawing.Size(819, 536);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminar);
@@ -250,6 +263,7 @@
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
     }
 }
 

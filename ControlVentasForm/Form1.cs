@@ -156,5 +156,10 @@ namespace ControlVentasForm
                 Application.Exit();
             }
         }
+
+        private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
