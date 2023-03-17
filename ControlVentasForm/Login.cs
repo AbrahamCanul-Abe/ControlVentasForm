@@ -8,15 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using DocumentFormat.OpenXml.Office2010.Excel;
+
 
 namespace ControlVentasForm
 {
     public partial class Login : Form
     {
-        public Login()
-        {
-            InitializeComponent();
-        }
+        #region Global Variables...
+        private SOLTUM.Framework.Business.UserBAL UserBAL;
+        string ConnectionString = SOLTUM.Framework.Global.ProjectConnection.CredentialsConnectionString;
 
         //Import para mover el formulario por la pantalla
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -24,15 +25,24 @@ namespace ControlVentasForm
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-
+        #endregion
 
         #region Methods
+        public Login()
+        {
+            InitializeComponent();
+        }
+        /// <summary>
+        /// Metodos para Limpiar el formulario cuando se inicie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
             if (txtUsuario.Text == " Usuario")
             {
                 txtUsuario.Text = string.Empty;
-                txtUsuario.ForeColor = Color.LightGray;
+                txtUsuario.ForeColor = System.Drawing.Color.LightGray;
             }
         }
 
@@ -41,7 +51,7 @@ namespace ControlVentasForm
             if (txtUsuario.Text == "")
             {
                 txtUsuario.Text = " Usuario";
-                txtUsuario.ForeColor = Color.DarkGray;
+                txtUsuario.ForeColor = System.Drawing.Color.DarkGray;
             }
         }
 
@@ -50,7 +60,7 @@ namespace ControlVentasForm
             if (txtPass.Text == " Contraseña")
             {
                 txtPass.Text = string.Empty;
-                txtPass.ForeColor = Color.LightGray;
+                txtPass.ForeColor = System.Drawing.Color.LightGray;
                 txtPass.UseSystemPasswordChar = true;
             }
         }
@@ -60,17 +70,26 @@ namespace ControlVentasForm
             if (txtPass.Text == "")
             {
                 txtPass.Text = " Contraseña";
-                txtPass.ForeColor= Color.DarkGray;
+                txtPass.ForeColor= System.Drawing.Color.DarkGray;
                 txtPass.UseSystemPasswordChar = false;
             }
         }
-        #endregion
 
+        /// <summary>
+        /// Metodo para el close button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Metodo para el minimize button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMin_Click(object sender, EventArgs e)
         {
             this.WindowState= FormWindowState.Minimized;
@@ -82,5 +101,38 @@ namespace ControlVentasForm
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        /// <summary>
+        /// Metodo para validar el usuario y contraseña existen en la BD usando el metodo UserBAL.UserExists()
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            UserBAL = new SOLTUM.Framework.Business.UserBAL() { ConnectionString = ConnectionString};
+            try
+            {
+                if (UserBAL.UserExists(txtUsuario.Text, txtPass.Text))
+                {
+                    Form1 frmProd = new Form1();
+                    frmProd.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos");
+                    txtPass.Text = " Contraseña";
+                    txtPass.UseSystemPasswordChar = false;
+                    txtUsuario.Text = " Usuario";
+                }
+            }
+            catch (Exception ex) { MessageBox.Show("Excepcion del tipo: " + ex.Message); }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }

@@ -16,7 +16,7 @@ namespace ControlVentasForm
 
         #region Global Variables
         private ControlVentasFormCore.Business.CategoriaBAL CategoriaBAL;
-        string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=ControlVentas";
+        string ConnectionString = SOLTUM.Framework.Global.ProjectConnection.DataConnectionString;
         #endregion 
         #region Constructors...
         public Frm_Categorias()
@@ -51,7 +51,7 @@ namespace ControlVentasForm
         /// </summary>
         private void Refresh()
         {
-            CategoriaBAL = new ControlVentasFormCore.Business.CategoriaBAL() { ConnectionString = ConnectionString };
+            CategoriaBAL = new CategoriaBAL() { ConnectionString = ConnectionString };
             CategoriasDataGridView.DataSource = CategoriaBAL.GetCategorias();
         }
         private void button1_Click(object sender, EventArgs e)

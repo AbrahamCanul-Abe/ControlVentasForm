@@ -142,7 +142,7 @@ namespace ControlVentasForm
         #region Menustrip
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form regCategorias = new Frm_Categorias();
+            Frm_Categorias regCategorias = new Frm_Categorias();
             regCategorias.Show(); 
         }
 
