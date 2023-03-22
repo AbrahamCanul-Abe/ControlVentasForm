@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.ProductosDataGridView = new System.Windows.Forms.DataGridView();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -47,20 +46,14 @@
             this.statusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).BeginInit();
+            this.gridControlMenu = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.ProductosDataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ProductosDataGridView
-            // 
-            this.ProductosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProductosDataGridView.Location = new System.Drawing.Point(58, 155);
-            this.ProductosDataGridView.Name = "ProductosDataGridView";
-            this.ProductosDataGridView.Size = new System.Drawing.Size(698, 347);
-            this.ProductosDataGridView.TabIndex = 0;
             // 
             // BtnNuevo
             // 
@@ -133,7 +126,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(819, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(816, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -156,50 +149,50 @@
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // mesasToolStripMenuItem
             // 
             this.mesasToolStripMenuItem.Name = "mesasToolStripMenuItem";
-            this.mesasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mesasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.mesasToolStripMenuItem.Text = "Mesas";
             // 
             // ordenesToolStripMenuItem
             // 
             this.ordenesToolStripMenuItem.Name = "ordenesToolStripMenuItem";
-            this.ordenesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ordenesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.ordenesToolStripMenuItem.Text = "Ordenes";
             // 
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.productosToolStripMenuItem.Text = "Productos";
             // 
             // perfilesToolStripMenuItem
             // 
             this.perfilesToolStripMenuItem.Name = "perfilesToolStripMenuItem";
-            this.perfilesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.perfilesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.perfilesToolStripMenuItem.Text = "Perfiles";
             // 
             // rolesToolStripMenuItem
             // 
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.rolesToolStripMenuItem.Text = "Roles";
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // statusToolStripMenuItem
             // 
             this.statusToolStripMenuItem.Name = "statusToolStripMenuItem";
-            this.statusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.statusToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.statusToolStripMenuItem.Text = "Status";
             // 
             // salirToolStripMenuItem
@@ -219,11 +212,41 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Control de ventas";
             // 
+            // gridControlMenu
+            // 
+            this.gridControlMenu.Location = new System.Drawing.Point(59, 157);
+            this.gridControlMenu.MainView = this.gridView1;
+            this.gridControlMenu.Name = "gridControlMenu";
+            this.gridControlMenu.Size = new System.Drawing.Size(698, 328);
+            this.gridControlMenu.TabIndex = 10;
+            this.gridControlMenu.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            this.gridControlMenu.Click += new System.EventHandler(this.gridControl1_Click);
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControlMenu;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsFind.AlwaysVisible = true;
+            this.gridView1.OptionsView.ShowAutoFilterRow = true;
+            // 
+            // ProductosDataGridView
+            // 
+            this.ProductosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ProductosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductosDataGridView.Location = new System.Drawing.Point(819, 140);
+            this.ProductosDataGridView.Name = "ProductosDataGridView";
+            this.ProductosDataGridView.Size = new System.Drawing.Size(15, 332);
+            this.ProductosDataGridView.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 536);
+            this.ClientSize = new System.Drawing.Size(816, 521);
+            this.Controls.Add(this.gridControlMenu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -234,19 +257,19 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "on";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductosDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView ProductosDataGridView;
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
@@ -264,6 +287,9 @@
         private System.Windows.Forms.ToolStripMenuItem statusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Label label2;
+        private DevExpress.XtraGrid.GridControl gridControlMenu;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.DataGridView ProductosDataGridView;
     }
 }
 

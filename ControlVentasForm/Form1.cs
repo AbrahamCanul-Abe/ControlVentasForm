@@ -37,8 +37,10 @@ namespace ControlVentasForm
         {
             try
             {
-                return int.Parse(
-                     ProductosDataGridView.Rows[ProductosDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
+
+                int x = gridView1.FocusedRowChanged;
+                return int.Parse(x);
+                     //ProductosDataGridView.Rows[ProductosDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
             }
             catch (Exception)
             {
@@ -86,6 +88,7 @@ namespace ControlVentasForm
         private void Refresh()
         {
             ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
+            gridControlMenu.DataSource = ProductoBAL.GetProductos();
             ProductosDataGridView.DataSource = ProductoBAL.GetProductos();
         }
         /// <summary>
@@ -158,6 +161,16 @@ namespace ControlVentasForm
         }
 
         private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vGridControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
         {
 
         }
