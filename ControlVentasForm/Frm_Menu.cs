@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Columns;
+﻿using DevExpress.Utils.MVVM;
+using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -61,6 +62,7 @@ namespace ControlVentasForm
             try
             {
                 Cursor = Cursors.WaitCursor;
+               
                 Refresh();
             }
             catch (Exception ex)
@@ -120,8 +122,12 @@ namespace ControlVentasForm
         {
             Refresh();
         }
+
         #endregion
 
-        
+        private void accordionControlElement1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
