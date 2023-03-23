@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,8 +41,10 @@ namespace ControlVentasForm
             try
             {
 
-                int x = gridView1.FocusedRowChanged;
-                return int.Parse(x);
+                GridView gridView = gridControlMenu.MainView as GridView;
+                GridColumn column = gridView.Columns[0];
+                
+                return Convert.ToInt32(gridView.GetFocusedRowCellValue(column));
                      //ProductosDataGridView.Rows[ProductosDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
             }
             catch (Exception)
