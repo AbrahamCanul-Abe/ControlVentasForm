@@ -29,144 +29,208 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_AddUpdate_Productos));
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbxCategorias = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.txt_Descripcion = new System.Windows.Forms.TextBox();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cbx_Categorias = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbx_Categorias.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
-            // label5
+            // layoutControl1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(125, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 24);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Agregar Productos";
+            this.layoutControl1.Controls.Add(this.btn_Save);
+            this.layoutControl1.Controls.Add(this.txt_Precio);
+            this.layoutControl1.Controls.Add(this.txt_Descripcion);
+            this.layoutControl1.Controls.Add(this.txt_Nombre);
+            this.layoutControl1.Controls.Add(this.cbx_Categorias);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(430, 172);
+            this.layoutControl1.TabIndex = 0;
+            this.layoutControl1.Text = "layoutControl1";
             // 
-            // label1
+            // Root
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 114);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Nombre";
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.emptySpaceItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(430, 172);
+            this.Root.TextVisible = false;
             // 
-            // btnSave
+            // txt_Nombre
             // 
-            this.btnSave.BackColor = System.Drawing.Color.LightGreen;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.Location = new System.Drawing.Point(157, 334);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 35);
-            this.btnSave.TabIndex = 18;
-            this.btnSave.Text = "Guardar";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.txt_Nombre.Location = new System.Drawing.Point(122, 12);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(296, 20);
+            this.txt_Nombre.TabIndex = 4;
             // 
-            // txtNombre
+            // layoutControlItem1
             // 
-            this.txtNombre.Location = new System.Drawing.Point(187, 103);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(143, 20);
-            this.txtNombre.TabIndex = 15;
+            this.layoutControlItem1.Control = this.txt_Nombre;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(410, 24);
+            this.layoutControlItem1.Text = "Nombre de Producto";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(98, 13);
             // 
-            // label4
+            // emptySpaceItem1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(68, 272);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Categoria";
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 136);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(410, 16);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // cbxCategorias
+            // txt_Descripcion
             // 
-            this.cbxCategorias.FormattingEnabled = true;
-            this.cbxCategorias.Location = new System.Drawing.Point(187, 264);
-            this.cbxCategorias.Name = "cbxCategorias";
-            this.cbxCategorias.Size = new System.Drawing.Size(143, 21);
-            this.cbxCategorias.TabIndex = 19;
-            this.cbxCategorias.Text = "Categorias";
+            this.txt_Descripcion.Location = new System.Drawing.Point(122, 36);
+            this.txt_Descripcion.Name = "txt_Descripcion";
+            this.txt_Descripcion.Size = new System.Drawing.Size(296, 20);
+            this.txt_Descripcion.TabIndex = 5;
             // 
-            // label3
+            // layoutControlItem2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 220);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Precio";
+            this.layoutControlItem2.Control = this.txt_Descripcion;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(410, 24);
+            this.layoutControlItem2.Text = "Descripción";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(98, 13);
             // 
-            // txtPrecio
+            // txt_Precio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(187, 209);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(143, 20);
-            this.txtPrecio.TabIndex = 17;
+            this.txt_Precio.Location = new System.Drawing.Point(122, 60);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(296, 20);
+            this.txt_Precio.TabIndex = 6;
             // 
-            // txtDescripcion
+            // layoutControlItem3
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(187, 149);
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(143, 20);
-            this.txtDescripcion.TabIndex = 16;
+            this.layoutControlItem3.Control = this.txt_Precio;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(410, 24);
+            this.layoutControlItem3.Text = "Precio";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(98, 13);
             // 
-            // label2
+            // layoutControlItem4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Descripcion";
+            this.layoutControlItem4.Control = this.cbx_Categorias;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(410, 24);
+            this.layoutControlItem4.Text = "Categoría";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(98, 13);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
+            this.btn_Save.Location = new System.Drawing.Point(12, 108);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(406, 36);
+            this.btn_Save.StyleController = this.layoutControl1;
+            this.btn_Save.TabIndex = 8;
+            this.btn_Save.Text = "Guardar";
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.btn_Save;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(410, 40);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
+            // 
+            // cbx_Categorias
+            // 
+            this.cbx_Categorias.EditValue = "Categorias";
+            this.cbx_Categorias.Location = new System.Drawing.Point(122, 84);
+            this.cbx_Categorias.Name = "cbx_Categorias";
+            this.cbx_Categorias.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbx_Categorias.Properties.NullText = "";
+            this.cbx_Categorias.Properties.PopupSizeable = false;
+            this.cbx_Categorias.Properties.PopupView = this.gridLookUpEdit1View;
+            this.cbx_Categorias.Size = new System.Drawing.Size(296, 20);
+            this.cbx_Categorias.StyleController = this.layoutControl1;
+            this.cbx_Categorias.TabIndex = 7;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // Frm_AddUpdate_Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 450);
-            this.Controls.Add(this.cbxCategorias);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtPrecio);
-            this.Controls.Add(this.txtDescripcion);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(430, 172);
+            this.Controls.Add(this.layoutControl1);
             this.Name = "Frm_AddUpdate_Productos";
             this.Text = "Frm_AddUpdate_Productos";
             this.Load += new System.EventHandler(this.Frm_AddUpdate_Productos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbx_Categorias.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cbxCategorias;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraEditors.SimpleButton btn_Save;
+        private System.Windows.Forms.TextBox txt_Precio;
+        private System.Windows.Forms.TextBox txt_Descripcion;
+        private System.Windows.Forms.TextBox txt_Nombre;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.GridLookUpEdit cbx_Categorias;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
     }
 }

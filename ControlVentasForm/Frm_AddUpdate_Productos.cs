@@ -16,6 +16,7 @@ namespace ControlVentasForm
         private int? ID;
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
+        private ControlVentasFormCore.Business.CategoriaBAL CategoriaBAL;
         string ConnectionString = SOLTUM.Framework.Global.ProjectConnection.DataConnectionString;
         #endregion
 
@@ -38,16 +39,15 @@ namespace ControlVentasForm
         private void LoadData()
         {
             ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
-            txtNombre.Text = ProductoBAL.GetProducto((int)ID).Nombre.ToString();
-            txtDescripcion.Text = ProductoBAL.GetProducto((int)ID).Descripcion.ToString();
-            txtPrecio.Text = ProductoBAL.GetProducto((int)ID).Precio.ToString();
-            cbxCategorias.SelectedValue = ProductoBAL.GetProducto((int)ID).CategoriaId.ToString();
-
-
-
+            txt_Nombre.Text = ProductoBAL.GetProducto((int)ID).Nombre.ToString();
+            txt_Descripcion.Text = ProductoBAL.GetProducto((int)ID).Descripcion.ToString();
+            txt_Precio.Text = ProductoBAL.GetProducto((int)ID).Precio.ToString();
+            cbx_Categorias.EditValue = ProductoBAL.GetProducto((int)ID).CategoriaId.ToString();
         }
         private void Frm_AddUpdate_Productos_Load(object sender, EventArgs e)
         {
+            CategoriaBAL = new ControlVentasFormCore.Business.CategoriaBAL() { ConnectionString = ConnectionString };
+
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 SqlCommand comando = new SqlCommand("select Nombre from dbENC78", connection);
@@ -55,7 +55,9 @@ namespace ControlVentasForm
                 SqlDataReader registro = comando.ExecuteReader();
                 while (registro.Read())
                 {
-                    cbxCategorias.Items.Add(registro["Nombre"].ToString());
+                    cbx_Categorias.Properties.DataSource = CategoriaBAL.GetCategorias();//(registro["Nombre"].ToString());
+                    //cbx_Categorias.Properties.ValueMember = "id";
+                    cbx_Categorias.Properties.DisplayMember = "Nombre";
                 }
                 connection.Close();
             }
@@ -63,13 +65,19 @@ namespace ControlVentasForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ControlVentasFormCore.Entity.ProductoInfo ProductoInfo = new ControlVentasFormCore.Entity.ProductoInfo();
-            ProductoInfo.Nombre = txtNombre.Text.ToString();
-            ProductoInfo.Descripcion = txtDescripcion.Text.ToString();
-            ProductoInfo.Precio = decimal.Parse(txtPrecio.Text);
-            ProductoInfo.CategoriaId = (int)(cbxCategorias.SelectedIndex);
+            
+            #endregion
+        }
 
-            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString};
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            ControlVentasFormCore.Entity.ProductoInfo ProductoInfo = new ControlVentasFormCore.Entity.ProductoInfo();
+            ProductoInfo.Nombre = txt_Nombre.Text.ToString();
+            ProductoInfo.Descripcion = txt_Descripcion.Text.ToString();
+            ProductoInfo.Precio = decimal.Parse(txt_Precio.Text);
+            ProductoInfo.CategoriaId = (int)(cbx_Categorias.EditValue);
+
+            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
             try
             {
                 if (ID == null)
@@ -89,7 +97,6 @@ namespace ControlVentasForm
             {
                 MessageBox.Show("Ocurrio un error al guardar: " + ex.Message);
             }
-            #endregion
         }
     }
 }
