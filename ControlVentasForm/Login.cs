@@ -114,7 +114,7 @@ namespace ControlVentasForm
             {
                 if (UserBAL.UserExists(txtUsuario.Text, txtPass.Text))
                 {
-                    Form1 frmProd = new Form1();
+                    Frm_Menu frmProd = new Frm_Menu();
                     frmProd.ShowDialog();
                 }
                 else

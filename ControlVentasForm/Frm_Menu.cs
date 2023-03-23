@@ -1,21 +1,18 @@
 ﻿using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
-using DocumentFormat.OpenXml.Drawing.Charts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using ControlVentasFormCore;
 
 namespace ControlVentasForm
-{   
-    public partial class Form1 : Form
+{
+    public partial class Frm_Menu : Form
     {
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
@@ -23,18 +20,13 @@ namespace ControlVentasForm
         //string ConnectionString = "server=LENO\\SQLEXPRESS2; uid=sa; pwd=developer; database=dbRestaurantventas_data";
         #endregion 
         #region Constructors...
-        public Form1()
+        public Frm_Menu()
         {
             InitializeComponent();
         }
         #endregion
-        /// <summary>
-        /// Ayuda a obtener el ID del item seleccionado en el DataGridView
-        /// </summary>
-        /// <returns></returns>
-
         #region HELPER
-        
+
         //Obtiene el id de la Fila/Producto seleccionado actualmente
         private int? GetId()
         {
@@ -43,9 +35,9 @@ namespace ControlVentasForm
 
                 GridView gridView = gridControlMenu.MainView as GridView;
                 GridColumn column = gridView.Columns[0];
-                
+
                 return Convert.ToInt32(gridView.GetFocusedRowCellValue(column));
-                     //ProductosDataGridView.Rows[ProductosDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
+                //ProductosDataGridView.Rows[ProductosDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
             }
             catch (Exception)
             {
@@ -56,11 +48,15 @@ namespace ControlVentasForm
         #endregion
         #region Events...
         /// <summary>
-        /// Metodo de inicio del Formulario
+        /// Metodo para refrescar los datos del datagrid
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Form1_Load(object sender, EventArgs e)
+        private void Refresh()
+        {
+            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
+            gridControlMenu.DataSource = ProductoBAL.GetProductos();
+
+        }
+        private void Frm_Menu_Load(object sender, EventArgs e)
         {
             try
             {
@@ -76,32 +72,14 @@ namespace ControlVentasForm
                 Cursor = Cursors.Default;
             }
         }
-        /// <summary>
-        /// Metodo del boton para agregar un nuevo producto
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnNuevo_Click(object sender, EventArgs e)
+        private void btn_add_Click(object sender, EventArgs e)
         {
             Frm_AddUpdate_Productos frm = new Frm_AddUpdate_Productos();
             frm.ShowDialog();
             Refresh();
         }
-        /// <summary>
-        /// Metodo para refrescar los datos del datagrid
-        /// </summary>
-        private void Refresh()
-        {
-            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
-            gridControlMenu.DataSource = ProductoBAL.GetProductos();
-            
-        }
-        /// <summary>
-        /// Metodo del boton para editar un producto
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnEditar_Click(object sender, EventArgs e)
+
+        private void btn_edit_Click(object sender, EventArgs e)
         {
             int? ID = GetId();
             if (ID != null)
@@ -111,12 +89,8 @@ namespace ControlVentasForm
                 Refresh();
             }
         }
-        /// <summary>
-        /// Metodo para elminar un producto
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnEliminar_Click(object sender, EventArgs e)
+
+        private void btn_delete_Click(object sender, EventArgs e)
         {
             int? ID = GetId();
             try
@@ -137,47 +111,17 @@ namespace ControlVentasForm
                 MessageBox.Show(ex.Message);
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+        private void Frm_Menu_Load_1(object sender, EventArgs e)
         {
             Refresh();
         }
         #endregion
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-        #region Menustrip
-        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Frm_Categorias regCategorias = new Frm_Categorias();
-            regCategorias.Show(); 
-        }
-
-        #endregion
-
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult opcionSeleciconada = MessageBox.Show("¿Realmente desea salir?", "Aviso", MessageBoxButtons.YesNo);
-            if(opcionSeleciconada == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void opcionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void vGridControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridControl1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
