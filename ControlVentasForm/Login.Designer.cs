@@ -126,7 +126,7 @@
             this.btn_Log.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.btn_Log.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.btn_Log.AppearanceHovered.BackColor = System.Drawing.Color.LightGreen;
-            this.btn_Log.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Log.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Log.AppearanceHovered.Options.UseBackColor = true;
             this.btn_Log.AppearanceHovered.Options.UseFont = true;
             this.btn_Log.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Log.ImageOptions.Image")));
