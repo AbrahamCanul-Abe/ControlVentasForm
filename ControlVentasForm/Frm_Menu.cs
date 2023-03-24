@@ -63,7 +63,7 @@ namespace ControlVentasForm
             {
                 Cursor = Cursors.WaitCursor;
                
-                Refresh();
+                //Refresh();
             }
             catch (Exception ex)
             {
