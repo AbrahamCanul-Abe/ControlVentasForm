@@ -30,21 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_AddUpdate_Productos));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txt_Nombre = new System.Windows.Forms.TextBox();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txt_Descripcion = new System.Windows.Forms.TextBox();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_Precio = new System.Windows.Forms.TextBox();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txt_Precio = new System.Windows.Forms.TextBox();
+            this.txt_Descripcion = new System.Windows.Forms.TextBox();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.cbx_Categorias = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbx_Categorias.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -52,8 +55,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbx_Categorias.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -71,6 +72,61 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btn_Save
+            // 
+            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
+            this.btn_Save.Location = new System.Drawing.Point(12, 108);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(406, 36);
+            this.btn_Save.StyleController = this.layoutControl1;
+            this.btn_Save.TabIndex = 8;
+            this.btn_Save.Text = "Guardar";
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // txt_Precio
+            // 
+            this.txt_Precio.Location = new System.Drawing.Point(122, 60);
+            this.txt_Precio.Name = "txt_Precio";
+            this.txt_Precio.Size = new System.Drawing.Size(296, 20);
+            this.txt_Precio.TabIndex = 6;
+            // 
+            // txt_Descripcion
+            // 
+            this.txt_Descripcion.Location = new System.Drawing.Point(122, 36);
+            this.txt_Descripcion.Name = "txt_Descripcion";
+            this.txt_Descripcion.Size = new System.Drawing.Size(296, 20);
+            this.txt_Descripcion.TabIndex = 5;
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.Location = new System.Drawing.Point(122, 12);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(296, 20);
+            this.txt_Nombre.TabIndex = 4;
+            // 
+            // cbx_Categorias
+            // 
+            this.cbx_Categorias.EditValue = "Categorias";
+            this.cbx_Categorias.Location = new System.Drawing.Point(122, 84);
+            this.cbx_Categorias.Name = "cbx_Categorias";
+            this.cbx_Categorias.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbx_Categorias.Properties.NullText = "";
+            this.cbx_Categorias.Properties.PopupSizeable = false;
+            this.cbx_Categorias.Properties.PopupView = this.gridLookUpEdit1View;
+            this.cbx_Categorias.Size = new System.Drawing.Size(296, 20);
+            this.cbx_Categorias.StyleController = this.layoutControl1;
+            this.cbx_Categorias.TabIndex = 7;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1});
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -85,13 +141,6 @@
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(430, 172);
             this.Root.TextVisible = false;
-            // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.Location = new System.Drawing.Point(122, 12);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(296, 20);
-            this.txt_Nombre.TabIndex = 4;
             // 
             // layoutControlItem1
             // 
@@ -110,13 +159,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(410, 16);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // txt_Descripcion
-            // 
-            this.txt_Descripcion.Location = new System.Drawing.Point(122, 36);
-            this.txt_Descripcion.Name = "txt_Descripcion";
-            this.txt_Descripcion.Size = new System.Drawing.Size(296, 20);
-            this.txt_Descripcion.TabIndex = 5;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txt_Descripcion;
@@ -125,13 +167,6 @@
             this.layoutControlItem2.Size = new System.Drawing.Size(410, 24);
             this.layoutControlItem2.Text = "Descripción";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(98, 13);
-            // 
-            // txt_Precio
-            // 
-            this.txt_Precio.Location = new System.Drawing.Point(122, 60);
-            this.txt_Precio.Name = "txt_Precio";
-            this.txt_Precio.Size = new System.Drawing.Size(296, 20);
-            this.txt_Precio.TabIndex = 6;
             // 
             // layoutControlItem3
             // 
@@ -151,17 +186,6 @@
             this.layoutControlItem4.Text = "Categoría";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(98, 13);
             // 
-            // btn_Save
-            // 
-            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
-            this.btn_Save.Location = new System.Drawing.Point(12, 108);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(406, 36);
-            this.btn_Save.StyleController = this.layoutControl1;
-            this.btn_Save.TabIndex = 8;
-            this.btn_Save.Text = "Guardar";
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btn_Save;
@@ -171,26 +195,13 @@
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // cbx_Categorias
+            // gridColumn1
             // 
-            this.cbx_Categorias.EditValue = "Categorias";
-            this.cbx_Categorias.Location = new System.Drawing.Point(122, 84);
-            this.cbx_Categorias.Name = "cbx_Categorias";
-            this.cbx_Categorias.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbx_Categorias.Properties.NullText = "";
-            this.cbx_Categorias.Properties.PopupSizeable = false;
-            this.cbx_Categorias.Properties.PopupView = this.gridLookUpEdit1View;
-            this.cbx_Categorias.Size = new System.Drawing.Size(296, 20);
-            this.cbx_Categorias.StyleController = this.layoutControl1;
-            this.cbx_Categorias.TabIndex = 7;
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.gridColumn1.Caption = "Categoria";
+            this.gridColumn1.FieldName = "Nombre";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
             // 
             // Frm_AddUpdate_Productos
             // 
@@ -203,6 +214,8 @@
             this.Load += new System.EventHandler(this.Frm_AddUpdate_Productos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbx_Categorias.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
@@ -210,8 +223,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbx_Categorias.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,5 +243,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.GridLookUpEdit cbx_Categorias;
         private DevExpress.XtraGrid.Views.Grid.GridView gridLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }

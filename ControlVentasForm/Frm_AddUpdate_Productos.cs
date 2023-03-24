@@ -56,18 +56,14 @@ namespace ControlVentasForm
                 while (registro.Read())
                 {
                     cbx_Categorias.Properties.DataSource = CategoriaBAL.GetCategorias();//(registro["Nombre"].ToString());
-                    //cbx_Categorias.Properties.ValueMember = "id";
+                    cbx_Categorias.Properties.ValueMember = "Id";
                     cbx_Categorias.Properties.DisplayMember = "Nombre";
                 }
                 connection.Close();
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            
-            #endregion
-        }
+        
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
@@ -98,5 +94,6 @@ namespace ControlVentasForm
                 MessageBox.Show("Ocurrio un error al guardar: " + ex.Message);
             }
         }
+        #endregion
     }
 }
