@@ -22,7 +22,7 @@ namespace ControlVentasForm
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 LoadMainConfiguration();        //  load initial configuration...
-                Application.Run(new Login());
+                Application.Run(new Frm_Menu());
             }
             catch (Exception ex)
             {
