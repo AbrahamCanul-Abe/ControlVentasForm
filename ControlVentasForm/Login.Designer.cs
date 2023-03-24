@@ -32,10 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.linkPass = new System.Windows.Forms.LinkLabel();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMin = new System.Windows.Forms.PictureBox();
+            this.btn_Log = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMin)).BeginInit();
             this.SuspendLayout();
@@ -80,30 +80,13 @@
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.LightGray;
-            this.btnLogin.Location = new System.Drawing.Point(192, 270);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(380, 40);
-            this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "Ingresar";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
             // linkPass
             // 
             this.linkPass.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
             this.linkPass.AutoSize = true;
             this.linkPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkPass.LinkColor = System.Drawing.Color.DimGray;
-            this.linkPass.Location = new System.Drawing.Point(192, 317);
+            this.linkPass.Location = new System.Drawing.Point(189, 330);
             this.linkPass.Name = "linkPass";
             this.linkPass.Size = new System.Drawing.Size(140, 16);
             this.linkPass.TabIndex = 0;
@@ -132,16 +115,40 @@
             this.btnMin.TabStop = false;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
             // 
+            // btn_Log
+            // 
+            this.btn_Log.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary;
+            this.btn_Log.Appearance.BackColor2 = System.Drawing.Color.Black;
+            this.btn_Log.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Log.Appearance.Options.UseBackColor = true;
+            this.btn_Log.Appearance.Options.UseFont = true;
+            this.btn_Log.Appearance.Options.UseTextOptions = true;
+            this.btn_Log.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.btn_Log.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.btn_Log.AppearanceHovered.BackColor = System.Drawing.Color.LightGreen;
+            this.btn_Log.AppearanceHovered.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Log.AppearanceHovered.Options.UseBackColor = true;
+            this.btn_Log.AppearanceHovered.Options.UseFont = true;
+            this.btn_Log.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Log.ImageOptions.Image")));
+            this.btn_Log.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btn_Log.Location = new System.Drawing.Point(192, 266);
+            this.btn_Log.Name = "btn_Log";
+            this.btn_Log.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btn_Log.Size = new System.Drawing.Size(380, 42);
+            this.btn_Log.TabIndex = 7;
+            this.btn_Log.Text = "Ingresar";
+            this.btn_Log.Click += new System.EventHandler(this.btn_Log_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(784, 450);
+            this.Controls.Add(this.btn_Log);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.linkPass);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label1);
@@ -163,9 +170,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPass;
-        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel linkPass;
         private System.Windows.Forms.PictureBox btnClose;
         private System.Windows.Forms.PictureBox btnMin;
+        private DevExpress.XtraEditors.SimpleButton btn_Log;
     }
 }

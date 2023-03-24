@@ -102,14 +102,14 @@ namespace ControlVentasForm
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        /// <summary>
-        /// Metodo para validar el usuario y contraseña existen en la BD usando el metodo UserBAL.UserExists()
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void Login_Load(object sender, EventArgs e)
         {
-            UserBAL = new SOLTUM.Framework.Business.UserBAL() { ConnectionString = ConnectionString};
+
+        }
+
+        private void btn_Log_Click(object sender, EventArgs e)
+        {
+            UserBAL = new SOLTUM.Framework.Business.UserBAL() { ConnectionString = ConnectionString };
             try
             {
                 if (UserBAL.UserExists(txtUsuario.Text, txtPass.Text))
@@ -127,12 +127,6 @@ namespace ControlVentasForm
             }
             catch (Exception ex) { MessageBox.Show("Excepcion del tipo: " + ex.Message); }
         }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         #endregion
     }
 }
