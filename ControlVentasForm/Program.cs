@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Demo_crud_vendedor.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -22,7 +23,7 @@ namespace ControlVentasForm
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 LoadMainConfiguration();        //  load initial configuration...
-                Application.Run(new Frm_Menu());
+                Application.Run(new Menu1002());
             }
             catch (Exception ex)
             {
