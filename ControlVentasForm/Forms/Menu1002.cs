@@ -16,6 +16,7 @@ namespace Demo_crud_vendedor.Forms
         private DevExpress.XtraBars.Navigation.AccordionControlElement OperacionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ReportesControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ProductosaccordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement CategoriasaccordionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement OtherOptionsaccordionControlElement1;
         #endregion
 
@@ -36,10 +37,11 @@ namespace Demo_crud_vendedor.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu1002));
             this.ConfiguracionaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ProductosaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.OperacionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ReportesControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.OtherOptionsaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.ProductosaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.CategoriasaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FluentImageCollection)).BeginInit();
             this.SuspendLayout();
@@ -62,8 +64,7 @@ namespace Demo_crud_vendedor.Forms
             this.OperacionControlElement1,
             this.ReportesControlElement1,
             this.OtherOptionsaccordionControlElement1});
-            this.accordionControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.accordionControl1.Size = new System.Drawing.Size(312, 607);
+            this.accordionControl1.Size = new System.Drawing.Size(250, 493);
             // 
             // FluentImageCollection
             // 
@@ -87,11 +88,19 @@ namespace Demo_crud_vendedor.Forms
             // ConfiguracionaccordionControlElement1
             // 
             this.ConfiguracionaccordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.ProductosaccordionControlElement1});
+            this.ProductosaccordionControlElement1,
+            this.CategoriasaccordionControlElement1});
             this.ConfiguracionaccordionControlElement1.Expanded = true;
             this.ConfiguracionaccordionControlElement1.ImageOptions.ImageIndex = 5;
             this.ConfiguracionaccordionControlElement1.Name = "ConfiguracionaccordionControlElement1";
             this.ConfiguracionaccordionControlElement1.Text = "Configuracion";
+            // 
+            // ProductosaccordionControlElement1
+            // 
+            this.ProductosaccordionControlElement1.Name = "ProductosaccordionControlElement1";
+            this.ProductosaccordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ProductosaccordionControlElement1.Text = "Productos";
+            this.ProductosaccordionControlElement1.Click += new System.EventHandler(this.ProductosaccordionControlElement1_Click);
             // 
             // OperacionControlElement1
             // 
@@ -111,20 +120,18 @@ namespace Demo_crud_vendedor.Forms
             this.OtherOptionsaccordionControlElement1.Name = "OtherOptionsaccordionControlElement1";
             this.OtherOptionsaccordionControlElement1.Text = "Otras Opciones";
             // 
-            // ProductosaccordionControlElement1
+            // CategoriasaccordionControlElement1
             // 
-            this.ProductosaccordionControlElement1.Name = "ProductosaccordionControlElement1";
-            this.ProductosaccordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.ProductosaccordionControlElement1.Text = "Productos";
-            this.ProductosaccordionControlElement1.Click += new System.EventHandler(this.ProductosaccordionControlElement1_Click);
+            this.CategoriasaccordionControlElement1.Name = "CategoriasaccordionControlElement1";
+            this.CategoriasaccordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.CategoriasaccordionControlElement1.Text = "Categorias";
             // 
             // Menu1002
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.ClientSize = new System.Drawing.Size(1043, 710);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(894, 577);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Menu1002";
             this.Text = "Control Ventas Restaurant";
             this.Load += new System.EventHandler(this.Menu1002_Load);

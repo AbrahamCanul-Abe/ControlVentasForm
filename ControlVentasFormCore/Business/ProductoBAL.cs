@@ -38,6 +38,7 @@ namespace ControlVentasFormCore.Business
         /// <returns></returns>
         public List<Entity.ProductoInfo> GetProductos()
         {
+            System.Threading.Thread.Sleep(10000);
             return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
         }
 

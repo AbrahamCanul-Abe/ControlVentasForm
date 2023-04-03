@@ -32,15 +32,15 @@ namespace ControlVentasForm.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Productos1001));
             this.ProductosGridControl = new DevExpress.XtraGrid.GridControl();
             this.ProductosgridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IdgridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NombregridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DescripciongridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.PreciogridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.AgregarbarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
             this.EditarbarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             this.BorrarbarButtonItem = new DevExpress.XtraBars.BarButtonItem();
-            this.IdgridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NombregridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DescripciongridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.PreciogridColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SalirbarButtonItem = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -55,14 +55,15 @@ namespace ControlVentasForm.Forms
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.ProductosGridControl);
-            this.layoutControl1.Location = new System.Drawing.Point(0, 35);
-            this.layoutControl1.Size = new System.Drawing.Size(1024, 534);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 29);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.layoutControl1.Size = new System.Drawing.Size(878, 433);
             // 
             // Root
             // 
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.Root.Size = new System.Drawing.Size(1024, 534);
+            this.Root.Size = new System.Drawing.Size(878, 433);
             // 
             // barManager
             // 
@@ -100,11 +101,13 @@ namespace ControlVentasForm.Forms
             // 
             // ProductosGridControl
             // 
-            this.ProductosGridControl.Location = new System.Drawing.Point(10, 10);
+            this.ProductosGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ProductosGridControl.Location = new System.Drawing.Point(7, 7);
             this.ProductosGridControl.MainView = this.ProductosgridView;
+            this.ProductosGridControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ProductosGridControl.MenuManager = this.barManager;
             this.ProductosGridControl.Name = "ProductosGridControl";
-            this.ProductosGridControl.Size = new System.Drawing.Size(1004, 514);
+            this.ProductosGridControl.Size = new System.Drawing.Size(864, 419);
             this.ProductosGridControl.TabIndex = 4;
             this.ProductosGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ProductosgridView});
@@ -116,6 +119,7 @@ namespace ControlVentasForm.Forms
             this.NombregridColumn,
             this.DescripciongridColumn,
             this.PreciogridColumn});
+            this.ProductosgridView.DetailHeight = 284;
             this.ProductosgridView.GridControl = this.ProductosGridControl;
             this.ProductosgridView.GroupPanelText = "Arrastra una columna aqui para agrupar en base a esa columna";
             this.ProductosgridView.Name = "ProductosgridView";
@@ -126,12 +130,54 @@ namespace ControlVentasForm.Forms
             this.ProductosgridView.OptionsView.ColumnAutoWidth = false;
             this.ProductosgridView.OptionsView.ShowFooter = true;
             // 
+            // IdgridColumn
+            // 
+            this.IdgridColumn.Caption = "Id";
+            this.IdgridColumn.FieldName = "Id";
+            this.IdgridColumn.MinWidth = 21;
+            this.IdgridColumn.Name = "IdgridColumn";
+            this.IdgridColumn.Visible = true;
+            this.IdgridColumn.VisibleIndex = 1;
+            this.IdgridColumn.Width = 60;
+            // 
+            // NombregridColumn
+            // 
+            this.NombregridColumn.Caption = "Nombre";
+            this.NombregridColumn.FieldName = "Nombre";
+            this.NombregridColumn.MinWidth = 21;
+            this.NombregridColumn.Name = "NombregridColumn";
+            this.NombregridColumn.Visible = true;
+            this.NombregridColumn.VisibleIndex = 2;
+            this.NombregridColumn.Width = 105;
+            // 
+            // DescripciongridColumn
+            // 
+            this.DescripciongridColumn.Caption = "Descripcion";
+            this.DescripciongridColumn.FieldName = "Descripcion";
+            this.DescripciongridColumn.MinWidth = 21;
+            this.DescripciongridColumn.Name = "DescripciongridColumn";
+            this.DescripciongridColumn.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Descripcion", "Registros {0}")});
+            this.DescripciongridColumn.Visible = true;
+            this.DescripciongridColumn.VisibleIndex = 3;
+            this.DescripciongridColumn.Width = 235;
+            // 
+            // PreciogridColumn
+            // 
+            this.PreciogridColumn.Caption = "Precio";
+            this.PreciogridColumn.FieldName = "Precio";
+            this.PreciogridColumn.MinWidth = 21;
+            this.PreciogridColumn.Name = "PreciogridColumn";
+            this.PreciogridColumn.Visible = true;
+            this.PreciogridColumn.VisibleIndex = 4;
+            this.PreciogridColumn.Width = 81;
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.ProductosGridControl;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1008, 518);
+            this.layoutControlItem1.Size = new System.Drawing.Size(866, 421);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -142,6 +188,7 @@ namespace ControlVentasForm.Forms
             this.AgregarbarButtonItem.ImageOptions.ImageIndex = 1;
             this.AgregarbarButtonItem.Name = "AgregarbarButtonItem";
             this.AgregarbarButtonItem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.AgregarbarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.AgregarbarButtonItem_ItemClick);
             // 
             // barCheckItem1
             // 
@@ -156,6 +203,7 @@ namespace ControlVentasForm.Forms
             this.EditarbarButtonItem.ImageOptions.ImageIndex = 2;
             this.EditarbarButtonItem.Name = "EditarbarButtonItem";
             this.EditarbarButtonItem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.EditarbarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.EditarbarButtonItem_ItemClick);
             // 
             // BorrarbarButtonItem
             // 
@@ -164,48 +212,6 @@ namespace ControlVentasForm.Forms
             this.BorrarbarButtonItem.ImageOptions.ImageIndex = 3;
             this.BorrarbarButtonItem.Name = "BorrarbarButtonItem";
             this.BorrarbarButtonItem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // IdgridColumn
-            // 
-            this.IdgridColumn.Caption = "Id";
-            this.IdgridColumn.FieldName = "Id";
-            this.IdgridColumn.MinWidth = 25;
-            this.IdgridColumn.Name = "IdgridColumn";
-            this.IdgridColumn.Visible = true;
-            this.IdgridColumn.VisibleIndex = 1;
-            this.IdgridColumn.Width = 70;
-            // 
-            // NombregridColumn
-            // 
-            this.NombregridColumn.Caption = "Nombre";
-            this.NombregridColumn.FieldName = "Nombre";
-            this.NombregridColumn.MinWidth = 25;
-            this.NombregridColumn.Name = "NombregridColumn";
-            this.NombregridColumn.Visible = true;
-            this.NombregridColumn.VisibleIndex = 2;
-            this.NombregridColumn.Width = 123;
-            // 
-            // DescripciongridColumn
-            // 
-            this.DescripciongridColumn.Caption = "Descripcion";
-            this.DescripciongridColumn.FieldName = "Descripcion";
-            this.DescripciongridColumn.MinWidth = 25;
-            this.DescripciongridColumn.Name = "DescripciongridColumn";
-            this.DescripciongridColumn.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Descripcion", "Registros {0}")});
-            this.DescripciongridColumn.Visible = true;
-            this.DescripciongridColumn.VisibleIndex = 3;
-            this.DescripciongridColumn.Width = 274;
-            // 
-            // PreciogridColumn
-            // 
-            this.PreciogridColumn.Caption = "Precio";
-            this.PreciogridColumn.FieldName = "Precio";
-            this.PreciogridColumn.MinWidth = 25;
-            this.PreciogridColumn.Name = "PreciogridColumn";
-            this.PreciogridColumn.Visible = true;
-            this.PreciogridColumn.VisibleIndex = 4;
-            this.PreciogridColumn.Width = 94;
             // 
             // SalirbarButtonItem
             // 
@@ -219,9 +225,10 @@ namespace ControlVentasForm.Forms
             // 
             // Productos1001
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.ClientSize = new System.Drawing.Size(1024, 592);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(878, 481);
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Productos1001.IconOptions.Image")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Productos1001";
             this.Text = "Configuracion de Productos";
             this.Load += new System.EventHandler(this.Productos1001_Load);

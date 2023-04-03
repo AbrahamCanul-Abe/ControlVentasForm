@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace ControlVentasForm.Forms
     {
         #region Global Variables
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
+        private SOLTUM.Framework.Presentation.Controls.LoadingSplash LoadingSplash;
         string ConnectionString = SOLTUM.Framework.Global.ProjectConnection.DataConnectionString;
         #endregion 
 
@@ -22,15 +25,50 @@ namespace ControlVentasForm.Forms
         }
         #endregion
 
+        #region HELPER
+
+        //Obtiene el id de la Fila/Producto seleccionado actualmente
+        private int? GetId()
+        {
+            try
+            {
+
+                GridView gridView = ProductosGridControl.MainView as GridView;
+                GridColumn column = gridView.Columns[0];
+
+                return Convert.ToInt32(gridView.GetFocusedRowCellValue(column));
+                //ProductosDataGridView.Rows[ProductosDataGridView.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+        #endregion
+
         #region Events...
         private void Productos1001_Load(object sender, EventArgs e)
         {
             try
             {
+                barStatusFormName.Caption = this.Name;
+                Show();
+
+                LoadingSplash = new SOLTUM.Framework.Presentation.Controls.LoadingSplash(this, SOLTUM.Framework.Presentation.Controls.LoadingSplash.eLoadingType.LoadingImage);
+                
+
                 Cursor = Cursors.WaitCursor;
 
+                LoadingSplash.Show();
+                LoadingSplash.SetCaption("Cargando datos de Productos");
+                LoadingSplash.SetDescription("Espere un momento...");
+                Application.DoEvents();
                 ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
                 ProductosGridControl.DataSource = ProductoBAL.GetProductos();
+
+                LoadingSplash.Hide();
+
                 ProductosgridView.ShowFindPanel();
 
             }
@@ -48,8 +86,17 @@ namespace ControlVentasForm.Forms
         {
             Close();
         }
+
         #endregion
 
-        
+        private void AgregarbarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void EditarbarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }
