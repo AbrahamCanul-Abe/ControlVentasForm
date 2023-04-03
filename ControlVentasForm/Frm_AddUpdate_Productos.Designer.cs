@@ -36,6 +36,7 @@
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.cbx_Categorias = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -43,7 +44,6 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbx_Categorias.Properties)).BeginInit();
@@ -85,36 +85,36 @@
             // 
             // txt_Precio
             // 
-            this.txt_Precio.Location = new System.Drawing.Point(122, 60);
+            this.txt_Precio.Location = new System.Drawing.Point(113, 60);
             this.txt_Precio.Name = "txt_Precio";
-            this.txt_Precio.Size = new System.Drawing.Size(296, 20);
+            this.txt_Precio.Size = new System.Drawing.Size(305, 20);
             this.txt_Precio.TabIndex = 6;
             // 
             // txt_Descripcion
             // 
-            this.txt_Descripcion.Location = new System.Drawing.Point(122, 36);
+            this.txt_Descripcion.Location = new System.Drawing.Point(113, 36);
             this.txt_Descripcion.Name = "txt_Descripcion";
-            this.txt_Descripcion.Size = new System.Drawing.Size(296, 20);
+            this.txt_Descripcion.Size = new System.Drawing.Size(305, 20);
             this.txt_Descripcion.TabIndex = 5;
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(122, 12);
+            this.txt_Nombre.Location = new System.Drawing.Point(113, 12);
             this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(296, 20);
+            this.txt_Nombre.Size = new System.Drawing.Size(305, 20);
             this.txt_Nombre.TabIndex = 4;
             // 
             // cbx_Categorias
             // 
             this.cbx_Categorias.EditValue = "Categorias";
-            this.cbx_Categorias.Location = new System.Drawing.Point(122, 84);
+            this.cbx_Categorias.Location = new System.Drawing.Point(113, 84);
             this.cbx_Categorias.Name = "cbx_Categorias";
             this.cbx_Categorias.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbx_Categorias.Properties.NullText = "";
             this.cbx_Categorias.Properties.PopupSizeable = false;
             this.cbx_Categorias.Properties.PopupView = this.gridLookUpEdit1View;
-            this.cbx_Categorias.Size = new System.Drawing.Size(296, 20);
+            this.cbx_Categorias.Size = new System.Drawing.Size(305, 20);
             this.cbx_Categorias.StyleController = this.layoutControl1;
             this.cbx_Categorias.TabIndex = 7;
             // 
@@ -126,6 +126,14 @@
             this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
             this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Categoria";
+            this.gridColumn1.FieldName = "Nombre";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
             // 
             // Root
             // 
@@ -194,14 +202,6 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(410, 40);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Categoria";
-            this.gridColumn1.FieldName = "Nombre";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
             // 
             // Frm_AddUpdate_Productos
             // 
