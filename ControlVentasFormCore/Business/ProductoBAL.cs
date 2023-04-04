@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using SOLTUM.Framework.Business;
+using SOLTUM.Framework.Utilities.BackgroundTask;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,7 +15,9 @@ namespace ControlVentasFormCore.Business
     /// </summary>
     public class ProductoBAL : BookBaseBAL<Entity.ProductoInfo, Entity.ProductoInfo.FieldName, Data.ProductoDAL>
     {
-
+        #region Properties...
+        public BackgroundCallBack Callback { get; set; }
+        #endregion
         #region Constructor...
         public ProductoBAL() : base()
         {
@@ -38,8 +41,25 @@ namespace ControlVentasFormCore.Business
         /// <returns></returns>
         public List<Entity.ProductoInfo> GetProductos()
         {
-            System.Threading.Thread.Sleep(10000);
-            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
+            //parte 1
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "SHOWLOADING" });
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Inicia Proceso 1...", MssgDet = "Espere un momento..."});
+            System.Threading.Thread.Sleep(5000);
+
+            //otro acceso a datos
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Otro acceso a datos...", MssgDet = "Espere un momento..." });
+            System.Threading.Thread.Sleep(3000);
+
+            //Regsitro a la bd
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Registro a la Bd...", MssgDet = "Espere un momento..." });
+            System.Threading.Thread.Sleep(3000);
+
+
+            var Result = DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "CONSULTATERMINADA", Obj = Result });
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "HIDELOADING" });
+            return Result;
+
         }
 
         /// <summary>
