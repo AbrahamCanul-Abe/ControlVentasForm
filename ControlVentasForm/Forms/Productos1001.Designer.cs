@@ -102,12 +102,12 @@ namespace ControlVentasForm.Forms
             // ProductosGridControl
             // 
             this.ProductosGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ProductosGridControl.Location = new System.Drawing.Point(7, 7);
+            this.ProductosGridControl.Location = new System.Drawing.Point(8, 8);
             this.ProductosGridControl.MainView = this.ProductosgridView;
             this.ProductosGridControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ProductosGridControl.MenuManager = this.barManager;
             this.ProductosGridControl.Name = "ProductosGridControl";
-            this.ProductosGridControl.Size = new System.Drawing.Size(864, 419);
+            this.ProductosGridControl.Size = new System.Drawing.Size(862, 417);
             this.ProductosGridControl.TabIndex = 4;
             this.ProductosGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ProductosgridView});
@@ -177,7 +177,7 @@ namespace ControlVentasForm.Forms
             this.layoutControlItem1.Control = this.ProductosGridControl;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(866, 421);
+            this.layoutControlItem1.Size = new System.Drawing.Size(864, 419);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -212,6 +212,7 @@ namespace ControlVentasForm.Forms
             this.BorrarbarButtonItem.ImageOptions.ImageIndex = 3;
             this.BorrarbarButtonItem.Name = "BorrarbarButtonItem";
             this.BorrarbarButtonItem.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.BorrarbarButtonItem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BorrarbarButtonItem_ItemClick);
             // 
             // SalirbarButtonItem
             // 

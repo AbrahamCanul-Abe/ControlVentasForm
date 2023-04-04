@@ -48,6 +48,16 @@ namespace ControlVentasForm.Forms
         #endregion
 
         #region Events...
+
+        /// <summary>
+        /// Metodo para refrescar los datos del datagrid
+        /// </summary>
+        private void Refresh()
+        {
+            ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
+            ProductosGridControl.DataSource = ProductoBAL.GetProductos();
+
+        }
         private void Productos1001_Load(object sender, EventArgs e)
         {
             try
@@ -64,8 +74,7 @@ namespace ControlVentasForm.Forms
                 LoadingSplash.SetCaption("Cargando datos de Productos");
                 LoadingSplash.SetDescription("Espere un momento...");
                 Application.DoEvents();
-                ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
-                ProductosGridControl.DataSource = ProductoBAL.GetProductos();
+                Refresh();
 
                 LoadingSplash.Hide();
 
@@ -87,16 +96,45 @@ namespace ControlVentasForm.Forms
             Close();
         }
 
-        #endregion
-
         private void AgregarbarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            ProductosAU1001 frm = new ProductosAU1001();
+            frm.ShowDialog();
+            Refresh();
         }
 
         private void EditarbarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            int? ID = GetId();
+            if (ID != null)
+            {
+                ProductosAU1001 frmEdit = new ProductosAU1001(ID);
+                frmEdit.ShowDialog();
+                Refresh();
+            }
         }
+
+        private void BorrarbarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int? ID = GetId();
+            try
+            {
+                if (ID != null)
+                {
+                    DialogResult result = MessageBox.Show("¿Está seguro que desea eliminar el producto?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        ProductoBAL = new ControlVentasFormCore.Business.ProductoBAL() { ConnectionString = ConnectionString };
+                        ProductoBAL.Delete((int)ID);
+                        Refresh();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
     }
 }
