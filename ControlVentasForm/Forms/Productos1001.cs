@@ -69,7 +69,7 @@ namespace ControlVentasForm.Forms
                 barStatusFormName.Caption = this.Name;
                 Show();
 
-                LoadingSplash = new SOLTUM.Framework.Presentation.Controls.LoadingSplash(this, SOLTUM.Framework.Presentation.Controls.LoadingSplash.eLoadingType.LoadingImage);
+                LoadingSplash = new SOLTUM.Framework.Presentation.Controls.LoadingSplash(this, SOLTUM.Framework.Presentation.Controls.LoadingSplash.eLoadingType.ProgressBar);
                 Callback = new BackgroundCallBack();
                 Callback.GralCallBack += Callback_GralCallBack;
 
@@ -114,6 +114,7 @@ namespace ControlVentasForm.Forms
                 case "MESSAGETOSPLASH":
                     LoadingSplash.SetCaption(e.Response.MssgGral);
                     LoadingSplash.SetDescription(e.Response.MssgDet);
+                    LoadingSplash.SetProgressValue(80);
                     break;
                 case "CONSULTATERMINADA":
                     ProductosGridControl.DataSource = e.Response.Obj;
