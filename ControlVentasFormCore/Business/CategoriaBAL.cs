@@ -31,6 +31,7 @@ namespace ControlVentasFormCore.Business
         /// <returns></returns>
         public List<Entity.CategoriaInfo> GetCategorias()
         {
+            //System.Threading.Thread.Sleep(3000);
             return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
         }
 

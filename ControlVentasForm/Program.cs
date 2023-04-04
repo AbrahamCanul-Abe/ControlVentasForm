@@ -1,4 +1,5 @@
-﻿using Demo_crud_vendedor.Forms;
+﻿using ControlVentasForm.Forms;
+using Demo_crud_vendedor.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;

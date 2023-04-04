@@ -43,8 +43,8 @@ namespace ControlVentasFormCore.Business
         {
             //parte 1
             if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "SHOWLOADING" });
-            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Inicia Proceso 1...", MssgDet = "Espere un momento..."});
-            System.Threading.Thread.Sleep(5000);
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Obteniendo datos...", MssgDet = "Espere un momento..."});
+            System.Threading.Thread.Sleep(3000);
 
             //otro acceso a datos
             if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Otro acceso a datos...", MssgDet = "Espere un momento..." });
@@ -70,10 +70,20 @@ namespace ControlVentasFormCore.Business
         /// <exception cref="Exception"></exception>
         public List<Entity.ProductoInfo> GetProductosPorId(int CategoriaId)
         {
+            //parte 1
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "SHOWLOADING" });
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Obteniendo productos que coincidan", MssgDet = "Espere un momento..." });
+            System.Threading.Thread.Sleep(3000);
+
             if (CategoriaId == 0) throw new Exception("No recibí el Id de la categoría de la que se desean obtener los productos");
-            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { 
-                new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.CategoriaId, "=", CategoriaId.ToString()) 
+
+            var Result = DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() {
+                new SOLTUM.Framework.Data.Attributes.Condition(Entity.ProductoInfo.FieldName.CategoriaId, "=", CategoriaId.ToString())
             }).ToList();
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "CONSULTATERMINADA", Obj = Result });
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "HIDELOADING" });
+
+            return Result;
         }
 
 

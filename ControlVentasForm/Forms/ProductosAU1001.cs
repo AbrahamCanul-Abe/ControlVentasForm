@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SOLTUM.Framework.Presentation.Controls;
+using SOLTUM.Framework.Utilities.BackgroundTask;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +18,8 @@ namespace ControlVentasForm.Forms
         private ControlVentasFormCore.Business.ProductoBAL ProductoBAL;
         private ControlVentasFormCore.Business.CategoriaBAL CategoriaBAL;
         string ConnectionString = SOLTUM.Framework.Global.ProjectConnection.DataConnectionString;
+        private LoadingSplash LoadingSplash;
+        private BackgroundCallBack Callback;
         #endregion
         public ProductosAU1001()
         {
@@ -42,6 +46,17 @@ namespace ControlVentasForm.Forms
 
         private void GuardarbarButtonItem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            barStatusFormName.Caption = this.Name;
+            Show();
+
+            LoadingSplash = new SOLTUM.Framework.Presentation.Controls.LoadingSplash(this, SOLTUM.Framework.Presentation.Controls.LoadingSplash.eLoadingType.ProgressBar);
+            Callback = new BackgroundCallBack();
+            LoadingSplash.Show();
+            System.Threading.Thread.Sleep(3000);
+            LoadingSplash.SetCaption("Guardando los datos");
+            LoadingSplash.SetDescription("Espere...");
+            Application.DoEvents();
+
             ControlVentasFormCore.Entity.ProductoInfo ProductoInfo = new ControlVentasFormCore.Entity.ProductoInfo();
             ProductoInfo.Nombre = NombretextEdit.Text.ToString();
             ProductoInfo.Descripcion = DescripciontextEdit.Text.ToString();
@@ -68,10 +83,13 @@ namespace ControlVentasForm.Forms
             {
                 MessageBox.Show("Ocurrio un error al guardar: " + ex.Message);
             }
+            LoadingSplash.Hide();
         }
 
         private void ProductosAU1001_Load(object sender, EventArgs e)
         {
+
+
             CategoriaBAL = new ControlVentasFormCore.Business.CategoriaBAL() { ConnectionString = ConnectionString };
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
