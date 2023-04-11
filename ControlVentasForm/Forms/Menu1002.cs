@@ -1,4 +1,6 @@
 ﻿using ControlVentasForm.Forms;
+using SOLTUM.Framework.Presentation.Controls;
+using SOLTUM.Framework.Utilities.BackgroundTask;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +19,10 @@ namespace Demo_crud_vendedor.Forms
         private DevExpress.XtraBars.Navigation.AccordionControlElement ReportesControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ProductosaccordionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement CategoriasaccordionControlElement1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement VerificacionTablasaccordionControlElement;
         private DevExpress.XtraBars.Navigation.AccordionControlElement OtherOptionsaccordionControlElement1;
+        private LoadingSplash LoadingSplash;
+        private BackgroundCallBack Callback;
         #endregion
 
         #region Constructor...
@@ -38,10 +43,11 @@ namespace Demo_crud_vendedor.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu1002));
             this.ConfiguracionaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ProductosaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.CategoriasaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.OperacionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ReportesControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.OtherOptionsaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.CategoriasaccordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.VerificacionTablasaccordionControlElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FluentImageCollection)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +70,7 @@ namespace Demo_crud_vendedor.Forms
             this.OperacionControlElement1,
             this.ReportesControlElement1,
             this.OtherOptionsaccordionControlElement1});
-            this.accordionControl1.Size = new System.Drawing.Size(250, 493);
+            this.accordionControl1.Size = new System.Drawing.Size(250, 491);
             // 
             // FluentImageCollection
             // 
@@ -102,6 +108,12 @@ namespace Demo_crud_vendedor.Forms
             this.ProductosaccordionControlElement1.Text = "Productos";
             this.ProductosaccordionControlElement1.Click += new System.EventHandler(this.ProductosaccordionControlElement1_Click);
             // 
+            // CategoriasaccordionControlElement1
+            // 
+            this.CategoriasaccordionControlElement1.Name = "CategoriasaccordionControlElement1";
+            this.CategoriasaccordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.CategoriasaccordionControlElement1.Text = "Categorias";
+            // 
             // OperacionControlElement1
             // 
             this.OperacionControlElement1.ImageOptions.ImageIndex = 8;
@@ -116,15 +128,19 @@ namespace Demo_crud_vendedor.Forms
             // 
             // OtherOptionsaccordionControlElement1
             // 
+            this.OtherOptionsaccordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.VerificacionTablasaccordionControlElement});
+            this.OtherOptionsaccordionControlElement1.Expanded = true;
             this.OtherOptionsaccordionControlElement1.ImageOptions.ImageIndex = 9;
             this.OtherOptionsaccordionControlElement1.Name = "OtherOptionsaccordionControlElement1";
             this.OtherOptionsaccordionControlElement1.Text = "Otras Opciones";
             // 
-            // CategoriasaccordionControlElement1
+            // VerificacionTablasaccordionControlElement
             // 
-            this.CategoriasaccordionControlElement1.Name = "CategoriasaccordionControlElement1";
-            this.CategoriasaccordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.CategoriasaccordionControlElement1.Text = "Categorias";
+            this.VerificacionTablasaccordionControlElement.Name = "VerificacionTablasaccordionControlElement";
+            this.VerificacionTablasaccordionControlElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.VerificacionTablasaccordionControlElement.Text = "Verificacion de Tablas";
+            this.VerificacionTablasaccordionControlElement.Click += new System.EventHandler(this.VerificacionTablasaccordionControlElement_Click);
             // 
             // Menu1002
             // 
@@ -147,6 +163,27 @@ namespace Demo_crud_vendedor.Forms
             PerformForm(new Productos1001() { MdiParent = this });
         }
 
+        private void VerificacionTablasaccordionControlElement_Click(object sender, EventArgs e)
+        {
+            ControlVentasFormCore.Business.VerificacionTablasBAL VerificacionBAL = new ControlVentasFormCore.Business.VerificacionTablasBAL() { ConnectionString = SOLTUM.Framework.Global.ProjectConnection.DataConnectionString };
+            VerificacionBAL.ExecuteVerificacionDeTablas();
+            
+           
+
+            LoadingSplash = new SOLTUM.Framework.Presentation.Controls.LoadingSplash(this, SOLTUM.Framework.Presentation.Controls.LoadingSplash.eLoadingType.ProgressBar);
+            Callback = new BackgroundCallBack();
+            
+
+            Cursor = Cursors.WaitCursor;
+
+            LoadingSplash.Show();
+            LoadingSplash.SetCaption("Realizando la verificacion de tablas");
+            LoadingSplash.SetDescription("Espere un momento...");
+            LoadingSplash.SetProgressValue(40);
+            System.Threading.Thread.Sleep(5000);
+            Application.DoEvents();
+            MessageBox.Show("Proceso de verificacion de tablas ejecutado correctamente", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         #endregion
 
         #region Methods...
@@ -162,5 +199,7 @@ namespace Demo_crud_vendedor.Forms
             
         }
         #endregion
+
+        
     }
 }
