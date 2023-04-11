@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLTUM.Framework.Business;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,24 +8,12 @@ using System.Threading.Tasks;
 
 namespace ControlVentasFormCore.Business
 {
-    public class StatusBAL
+    public class StatusBAL : BookBaseBAL<Entity.StatusInfo, Entity.StatusInfo.FieldName, Data.StatusDAL>
     {
-        #region Variables Globales...
-        public Data.StatusDAL StatusDAL;
-        #endregion
-
         #region Constructor...
-        public StatusBAL()
+        public StatusBAL() : base()
         {
-            StatusDAL = new Data.StatusDAL();
-        }
-        #endregion
-
-        #region Properties
-        public string ConnectionString
-        {
-            get { return StatusDAL.ConnectionString; }
-            set { StatusDAL.ConnectionString = value; }
+            Version = "1.0.0.0";
         }
         #endregion
 
@@ -32,7 +21,7 @@ namespace ControlVentasFormCore.Business
         public Entity.StatusInfo GetStatus(int Id)
         {
             if (Id == 0) throw new ArgumentException("No recibi el id del Status que desea obtener");
-            return StatusDAL.GetEntityObject(Id);
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { new SOLTUM.Framework.Data.Attributes.Condition(Entity.StatusInfo.FieldName.Id, "=", Id.ToString()) }).FirstOrDefault(); ;
         }
 
         /// <summary>
@@ -42,46 +31,9 @@ namespace ControlVentasFormCore.Business
         /// <returns></returns>
         public List<Entity.StatusInfo> GetStatuss()
         {
-            return StatusDAL.FindBy(new Entity.StatusInfo());
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
         }
 
-        /// <summary>
-        /// Aplica un filtro sobre una entidad de producto
-        /// </summary>
-        /// <param name="StatusInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public List<Entity.StatusInfo> FindBy(Entity.StatusInfo StatusInfo)
-        {
-            if (StatusInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Status para aplicar el filtro");
-            return StatusDAL.FindBy(StatusInfo);
-        }
-
-        /// <summary>
-        /// Metodo para guardar datos de un status, insertar o actualizar
-        /// </summary>
-        /// <param name="StatusInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public int Save(Entity.StatusInfo StatusInfo)
-        {
-            if (StatusInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Status para aplicar el filtro");
-            if (StatusInfo.Id == 0)
-                return StatusDAL.Insert(StatusInfo);
-            else
-                return StatusDAL.Update(StatusInfo);
-        }
-
-        /// <summary>
-        /// Metodo para eliminar un status a traves de su Id
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public bool Delete(int Id)
-        {
-            StatusDAL.Delete(Id);
-            return true;
-        }
         #endregion
     }
 }

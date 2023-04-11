@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SOLTUM.Framework.Business;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,24 +8,12 @@ using System.Threading.Tasks;
 
 namespace ControlVentasFormCore.Business
 {
-    public class MesaBAL
+    public class MesaBAL : BookBaseBAL<Entity.MesaInfo, Entity.MesaInfo.FieldName, Data.MesaDAL>
     {
-        #region Variables Globales...
-        public Data.MesaDAL MesaDAL;
-        #endregion
-
         #region Constructor...
-        public MesaBAL()
+        public MesaBAL() : base()
         {
-            MesaDAL = new Data.MesaDAL();
-        }
-        #endregion
-
-        #region Properties
-        public string ConnectionString
-        {
-            get { return MesaDAL.ConnectionString; }
-            set { MesaDAL.ConnectionString = value; }
+            Version = "1.0.0.0";
         }
         #endregion
 
@@ -32,7 +21,8 @@ namespace ControlVentasFormCore.Business
         public Entity.MesaInfo GetMesa(int Id)
         {
             if (Id == 0) throw new ArgumentException("No recibi el id de la mesa que desea obtener");
-            return MesaDAL.GetEntityObject(Id);
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>() { new SOLTUM.Framework.Data.Attributes.Condition(Entity.MesaInfo.FieldName.Id, "=", Id.ToString()) }).FirstOrDefault(); ;
+
         }
 
         /// <summary>
@@ -42,47 +32,9 @@ namespace ControlVentasFormCore.Business
         /// <returns></returns>
         public List<Entity.MesaInfo> GetMesas()
         {
-            return MesaDAL.FindBy(new Entity.MesaInfo());
+            return DataAccessLayer.GetEntityObjects(new List<SOLTUM.Framework.Data.Attributes.Condition>()).ToList();
         }
 
-
-        /// <summary>
-        /// Aplica un filtro sobre una entidad de Mesa
-        /// </summary>
-        /// <param name="MesaInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public List<Entity.MesaInfo> FindBy(Entity.MesaInfo MesaInfo)
-        {
-            if (MesaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Mesa para aplicar el filtro");
-            return MesaDAL.FindBy(MesaInfo);
-        }
-
-        /// <summary>
-        /// Metodo para guardar datos de una mesa, insertar o actualizar
-        /// </summary>
-        /// <param name="MesaInfo"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public int Save(Entity.MesaInfo MesaInfo)
-        {
-            if (MesaInfo == null) throw new ArgumentNullException("No recibi un objeto entidad Mesa para aplicar el filtro");
-            if (MesaInfo.Id == 0)
-                return MesaDAL.Insert(MesaInfo);
-            else
-                return MesaDAL.Update(MesaInfo);
-        }
-
-        /// <summary>
-        /// Metodo para eliminar una mesa a traves de su Id
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public bool Delete(int Id)
-        {
-            MesaDAL.Delete(Id);
-            return true;
-        }
 
         
         #endregion
