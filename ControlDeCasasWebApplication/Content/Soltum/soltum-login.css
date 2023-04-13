@@ -1,0 +1,276 @@
+﻿body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--Background-Login);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-attachment: initial;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#UserInfo {
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+
+.user_card {
+    /*height: 400px;*/
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: var(--BackGroud-Color);
+    position: relative;
+    /*display: flex;*/
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 10px 40px 10px;
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+    border: .28px #d7dce4 solid;
+    border-radius: 5px;
+}
+
+.brand_logo_container {
+    /*position: absolute;*/
+    /*height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    padding: 30px 0 0 0;
+    text-align: center;
+    border: solid 2px black;*/
+    margin: 25px 0 35px 0;
+    max-width: 210px;
+    max-height: 100px;
+}
+
+.brand_logo {
+    max-width: 170px;
+    max-height: 100px;
+    /*border-radius: 50%;
+    border: 2px solid rgba(0,0,0,.9);*/
+}
+
+/*.form_container {
+    margin-top: 100px;
+}*/
+
+.login_container {
+    padding: 0 2rem;
+    margin-top: 30px !important;
+}
+/* Forms */
+form input.error {
+    border-color: var(--frm-error-color) !important;
+}
+
+form label.error {
+    font-size: small;
+    color: var(--frm-error-color);
+    display: none !important;
+}
+
+form select.error {
+    border-color: var(--frm-error-color) !important;
+}
+
+/*form input.valid {
+    border-color: var(--frm-success-color) !important;
+}*/
+
+form select.valid {
+    border-color: var(--frm-success-color) !important;
+}
+/*********/
+/* Footer */
+.footer {
+    font-family: GothamBook;
+    font-size: 10pt !important;
+    zoom: 80%;
+    text-align: center;
+    width: 100%;
+    background-color: #202020;
+    color: #ffffff;
+    padding: 10px 0px;
+    bottom: 0;
+    position: absolute;
+}
+
+    .footer a {
+        color: #ffffff !important;
+        text-decoration: none;
+        border-bottom: 0.2em solid
+    }
+/**********/
+/* Alerts */
+.alert-container {
+    bottom: 20px;
+    position: fixed;
+    width: 30%;
+    right: 15px;
+    margin-left: 10px;
+    float: right;
+    border-radius: 4px;
+    border: 0px solid transparent;
+    background: transparent;
+    z-index: 1100;
+}
+
+.alert-remove-margin {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+/***************/
+/* Loading mask */
+#loadingMask {
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1051;
+    position: fixed;
+    opacity: 0.3;
+    text-align: center;
+    background: url("/Images/load-mask.gif") no-repeat scroll center center gray;
+    display: none;
+    background-size: 10rem;
+}
+/****************/
+
+/*  SendEmail Dialog  */
+.CustomDialog {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+}
+
+.backgroudDialog {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--BackGroud-Color);
+}
+
+.DialogForm {
+    position: relative;
+    width: 350px;
+    height: 200px;
+    top: 50%;
+    margin: -100px auto 0 auto;
+    border: .28px #d7dce4 solid;
+    background: white;
+}
+
+    .DialogForm .header {
+        height: 50px;
+        padding: 13px 10px;
+        background-color: var(--modal-header-bg-color);
+        color: var(--modal-header-lt-color);
+        border-bottom: solid 1px var(--Lines-Color);
+        text-align: center;
+    }
+
+        .DialogForm .header .btnClose {
+            position: absolute;
+            right: 10px;
+            top: 15px;
+            width: 18px;
+            height: 18px;
+            padding: 0;
+            cursor: pointer;
+            font: icon;
+            color: gray;
+        }
+
+            .DialogForm .header .btnClose:hover {
+                background: #ff4444;
+                color: white;
+                border-radius: 2px
+            }
+
+    .DialogForm .body {
+        height: 50px;
+        padding: 10px;
+        text-align: center;
+    }
+
+        .DialogForm .body label {
+            color: var(--modal-header-lt-color);
+            font-size: 11pt;
+            margin: 10px;
+        }
+
+    .DialogForm .footer {
+        height: 60px;
+        padding: 14px;
+        text-align: center;
+        background-color: var(--modal-footer-bg-color);
+        color: var(--modal-footer-lt-color);
+    }
+
+.ResetDialog {
+    width: 350px;
+    height: 400px;
+    top: 50%;
+    margin: -250px auto 0 auto;
+    background: white;
+}
+
+    .ResetDialog .body {
+        height: auto;
+        padding: 10px 24px;
+        text-align: center;
+    }
+
+.label1 {
+    margin: 25px 0;
+    font-weight: 600;
+}
+
+.label2 {
+    margin: 15px;
+    font-size: 11pt;
+}
+
+.label3 {
+    margin: 25px;
+    font-size: 10pt;
+}
+/****************/
+
+/*  Responsive Mode  */
+@media only screen and (max-width: 1200px) {
+    body, html {
+        background-position-x: 0px;
+        background-position-y: 0px;
+    }
+}
+
+/*input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    font-family: GothamMedium !important;
+    font-size: 9pt !important;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}*/

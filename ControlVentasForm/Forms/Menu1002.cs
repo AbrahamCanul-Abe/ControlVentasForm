@@ -171,7 +171,7 @@ namespace Demo_crud_vendedor.Forms
            
 
             LoadingSplash = new SOLTUM.Framework.Presentation.Controls.LoadingSplash(this, SOLTUM.Framework.Presentation.Controls.LoadingSplash.eLoadingType.ProgressBar);
-            Callback = new BackgroundCallBack();
+            
             
 
             Cursor = Cursors.WaitCursor;

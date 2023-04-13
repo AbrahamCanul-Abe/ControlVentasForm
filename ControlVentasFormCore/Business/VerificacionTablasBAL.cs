@@ -1,4 +1,5 @@
 ﻿using SOLTUM.Framework.Core;
+using SOLTUM.Framework.Utilities.BackgroundTask;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace ControlVentasFormCore.Business
     public class VerificacionTablasBAL : SOLTUM.Framework.Business.VerificaTablasBAL
     {
         #region Properties...
+        private BackgroundCallBack Callback;
         public override string ConnectionString { get ; set ; }
         #endregion
         #region Methods...
@@ -35,9 +37,12 @@ namespace ControlVentasFormCore.Business
 
         public override List<BookStructureInfo> GetBookStructures()
         {
+            Callback = new BackgroundCallBack();
             List<BookStructureInfo> Books = new List<BookStructureInfo>();
 
             //Estructura de los productos
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "SHOWLOADING" });
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "MESSAGETOSPLASH", MssgGral = "Realizando la verificacion de tablas" });
             ProductoBAL ProductoBAL = new ProductoBAL() { ConnectionString = ConnectionString};
             CategoriaBAL CategoriaBAL = new CategoriaBAL() { ConnectionString = ConnectionString };
             MesaBAL MesaBAL = new MesaBAL() { ConnectionString = ConnectionString };
@@ -48,6 +53,7 @@ namespace ControlVentasFormCore.Business
             Books.Add(MesaBAL.GetBookStructure(Properties.Resources.ProgramDescription, Properties.Resources.ProgramName));
             Books.Add(OrdenBAL.GetBookStructure(Properties.Resources.ProgramDescription, Properties.Resources.ProgramName));
             Books.Add(StatusBAL.GetBookStructure(Properties.Resources.ProgramDescription, Properties.Resources.ProgramName));
+            if (Callback != null) Callback.FireEvent(new BackgroundResponseInfo() { StepCustom = "HIDELOADING" });
             return Books;
         }
 

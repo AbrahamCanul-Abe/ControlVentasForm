@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33110.190
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlVentasForm", "ControlVentasForm\ControlVentasForm.csproj", "{B0C6CBA7-065D-494D-8FB6-96440E5E2C38}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlVentasFormCore", "ControlVentasFormCore\ControlVentasFormCore.csproj", "{363D3D8F-6C38-4122-826C-60AD09FC75DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests ControlVentas", "Tests ControlVentas\Tests ControlVentas.csproj", "{D6AA81C5-717C-432A-B05C-041D12F2E89D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlVentasWeb", "ControlVentasWeb\ControlVentasWeb.csproj", "{54EF98A7-9BC3-43CF-B3FC-75C0DEFDFC0E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D6AA81C5-717C-432A-B05C-041D12F2E89D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6AA81C5-717C-432A-B05C-041D12F2E89D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6AA81C5-717C-432A-B05C-041D12F2E89D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54EF98A7-9BC3-43CF-B3FC-75C0DEFDFC0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54EF98A7-9BC3-43CF-B3FC-75C0DEFDFC0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54EF98A7-9BC3-43CF-B3FC-75C0DEFDFC0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54EF98A7-9BC3-43CF-B3FC-75C0DEFDFC0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

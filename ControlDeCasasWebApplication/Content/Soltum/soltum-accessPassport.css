@@ -1,0 +1,81 @@
+﻿html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #5438d7;
+    margin: 0;
+}
+
+.container {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;    
+    height: 100%;
+    width: 100%;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 2px solid #c1bdbd;
+    border-radius: 6px;
+    margin: 50px auto 0px auto;
+    padding: 0px;
+    display: table;
+    width: 350px;
+}
+
+cell-header, cell-body, cell-footer {
+    display: table-cell;
+}
+
+/*------------- header -------------------------------------------------------------------------------*/
+.cell-header {
+    /*background-color: #d1cbcb;*/    
+    padding: 5px 0px 0px 0px;
+    width: 100%;
+}
+
+.img-header {
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+}
+.img-header img {    
+    width: 220px;
+    height: 50px;
+}
+
+/*------------- body ---------------------------------------------------------------------------------*/
+.cell-body {
+    margin: 0px auto auto auto;
+    text-align: center;
+}
+
+.body-image {
+    margin: 0px 0px 10px 0px;
+}
+.label-image-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.body-data {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+.body-data-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+/*------------- footer -------------------------------------------------------------------------------*/
+.cell-footer {
+    /*background-color: aqua;*/
+    margin: 30px auto 20px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.label-access {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 800;    
+    font-size: xx-large;
+}

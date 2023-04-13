@@ -1,0 +1,76 @@
+﻿
+.container-ac {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.card-ac {
+    background-color: #ffffff;
+    border: 2px solid #c1bdbd;
+    border-radius: 6px;
+    margin: 50px auto 0px auto;
+    padding: 0px;
+    display: table;
+    width: 350px;
+}
+
+cell-header-ac, cell-body-ac, cell-footer-ac {
+    display: table-cell;
+}
+
+/*------------- header -------------------------------------------------------------------------------*/
+.cell-header-ac {
+    /*background-color: #d1cbcb;*/
+    padding: 5px 0px 0px 0px;
+    width: 100%;
+}
+
+.img-header-ac {
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+}
+
+.img-header-ac img {
+    width: 220px;
+    height: 50px;
+}
+
+/*------------- body ---------------------------------------------------------------------------------*/
+.cell-body-ac {
+    margin: 0px auto auto auto;
+    text-align: center;
+}
+
+.body-image-ac {
+    margin: 0px 0px 10px 0px;
+}
+
+.label-image-label-ac {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.body-data-ac {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+
+.body-data-label-ac {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+}
+/*------------- footer -------------------------------------------------------------------------------*/
+.cell-footer-ac {
+    /*background-color: aqua;*/
+    margin: 30px auto 20px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.label-access-ac {
+    font-family: Montserrat, Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    font-size: xx-large;
+}

@@ -1,0 +1,125 @@
+﻿body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: url("../../Images/index-bg.png") no-repeat center center fixed;
+    background-size: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.user_card {
+    height: 500px;
+    width: 450px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #f8f8f8;
+    position: relative;
+    display: block ruby;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: var(--menu-bg-active-color);
+    padding: 10px;
+    text-align: center;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.form_container {
+    margin-top: 50px;
+}
+
+.login_container {
+    padding: 0 2rem;
+}
+/* Forms */
+form input.error {
+    border-color: var(--frm-error-color) !important;
+}
+
+.form-row {
+    display: contents;
+}
+
+form label.error {
+    font-size: small;
+    color: var(--frm-error-color);
+    display: none !important;
+}
+
+form select.error {
+    border-color: var(--frm-error-color) !important;
+}
+
+form input.valid {
+    border-color: var(--frm-success-color) !important;
+}
+
+form select.valid {
+    border-color: var(--frm-success-color) !important;
+}
+/*********/
+/* Footer */
+.footer {
+    text-align: center;
+    width: 100%;
+    background-color: var(--footer-bg-color);
+    color: var(--footer-lt-color);
+    padding: 10px 0px;
+    bottom: 0;
+    position: absolute;
+}
+/**********/
+/* Alerts */
+.alert-container {
+    bottom: 20px;
+    position: fixed;
+    width: 30%;
+    right: 15px;
+    margin-left: 10px;
+    float: right;
+    border-radius: 4px;
+    border: 0px solid transparent;
+    background: transparent;
+    z-index: 1100;
+}
+
+.alert-remove-margin {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+/***************/
+/* Loading mask */
+#loadingMask {
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1051;
+    position: fixed;
+    opacity: 0.3;
+    text-align: center;
+    background: url("/Images/load-mask.gif") no-repeat scroll center center gray;
+    display: none;
+    background-size: 10rem;
+}
