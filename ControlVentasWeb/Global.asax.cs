@@ -16,6 +16,13 @@ namespace ControlVentasWeb
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            SOLTUM.Framework.Global.ProjectConnection = new SOLTUM.Framework.Utilities.ProjectConnection
+            {
+                DataConnectionString = "Data Source=LENO\\SQLEXPRESS2; Initial Catalog=dbRestaurantventas_data;" + "Integrated Security=true;", //ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString,
+                CredentialsConnectionString = "", //ConfigurationManager.ConnectionStrings["CredentialsConnectionString"].ConnectionString,
+                ConfigConnectionString = ""//ConfigurationManager.ConnectionStrings["DataConnectionString"].ConnectionString
+            };
         }
     }
 }
