@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ControlVentasWeb {
+namespace ControlDeCasasWebApplication {
     
     
     public partial class Site_Mobile {

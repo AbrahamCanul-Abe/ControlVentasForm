@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
-namespace ControlVentasWeb
+namespace ControlDeCasasWebApplication
 {
     public static class RouteConfig
     {

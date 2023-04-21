@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace ControlVentasWeb
+namespace ControlDeCasasWebApplication
 {
     public partial class Contact
     {
